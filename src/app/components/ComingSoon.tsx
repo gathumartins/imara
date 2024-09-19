@@ -42,7 +42,6 @@ function ComingSoon() {
                       <input type="email" name="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter your e-mail address" className="rounded-lg py-2 px-6 flex-grow"/>
                       <input type="submit" value="Notify Me" className="bg-[#1D4C94] rounded-lg text-center p-3 cursor-pointer" disabled={state === "Loading"} onClick={subscribe}/>
                     </form>
-                    
                 </div>
                 <div className="text-center items-center md:items-end">&copy; {(new Date().getFullYear())} Imara Fellowship. All rights reserved.</div>
             </div>
