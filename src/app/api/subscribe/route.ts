@@ -8,7 +8,7 @@ mailchimp.setConfig({
     server: process.env.MAILCHIMP_API_SERVER
 })
 
-export async function POST(Request){
+export async function POST(Request:Request){
     const {email} = await Request.json();
 
     if(!email) new Response (JSON.stringify({error:"Email is required"}));
@@ -17,7 +17,7 @@ export async function POST(Request){
         const res = await mailchimp.lists.addListMember(process.env.MAILCHIMP_AUDIENCE_ID, {email_address:email, status:"subscribed"})
 
         return new Response(JSON.stringify({res}));
-    }catch(error){
+    }catch(error:any){
         return new Response(
             JSON.stringify({error: JSON.parse(error.response.text)})
         ) ;
