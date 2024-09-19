@@ -11,10 +11,10 @@ function ComingSoon() {
                     <form action="" className="flex gap-4 w-full sm:w-[380px]">
                       <label htmlFor="email" className="sr-only">Email</label>
                       <input type="email" name="email" id="email"  placeholder="Enter your e-mail address" className="rounded-lg py-2 px-6 flex-grow"/>
-                      <input type="submit" value="Notify Me" className="bg-[#1D4C94] rounded-lg text-center p-3 animate-pulse"/>
+                      <input type="submit" value="Notify Me" className="bg-[#1D4C94] rounded-lg text-center p-3 animate-pulse cursor-pointer"/>
                     </form>
                 </div>
-                <div className="text-center items-center md:items-end">Copyright {(new Date().getFullYear())} @ Imara Fellowship. All rights reserved.</div>
+                <div className="text-center items-center md:items-end">&copy; {(new Date().getFullYear())} Imara Fellowship. All rights reserved.</div>
             </div>
         </section>
     </div>
