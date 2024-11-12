@@ -3,15 +3,31 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+const avenirBlack = localFont({
+  src: "./fonts/AvenirBlack.woff2",
+  variable: "--avenir-black",
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const avenirBook = localFont({
+  src: "./fonts/AvenirBook.woff2",
+  variable: "--avenir-book",
+});
+const avenirRoman = localFont({
+  src: "./fonts/AvenirRoman.woff2",
+  variable: "--avenir-roman",
+});
+
+const avenirNext = localFont({
+  src: "./fonts/AvenirNext.woff2",
+  variable: "--avenir-next",
+});
+const avenirNextBold = localFont({
+  src: "./fonts/AvenirNextBold.woff2",
+  variable: "--avenir-next-bold",
+});
+
+const avenirNextRegular = localFont({
+  src: "./fonts/AvenirNextRegular.woff2",
+  variable: "--avenir-next-regular",
 });
 
 export const metadata: Metadata = {
@@ -27,11 +43,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-[#1D4C948C]">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${avenirBlack.variable} ${avenirBook.variable} ${avenirRoman.variable} ${avenirNext.variable} ${avenirNextBold.variable} ${avenirNextRegular.variable} antialiased`}
       >
-        <Providers>
-          {children}
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

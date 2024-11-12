@@ -9,19 +9,40 @@ const config: Config = {
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-      container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
-    },
-    extend: {
-      colors: {},
-    },
+  	container: {
+  		center: true,
+  		screens: {
+  			'2xl': '1400px'
+  		}
+  	},
+	fontFamily:{
+		avenirBlack: ['var(--avenir-black)'],
+		avenirBook: ['var(--avenir-black)'],
+		avenirRoman: ['var(--avenir-roman)'],
+		avenirNextBold: ['var(--avenir-next-bold)'],
+		avenirNext: ['var(--avenir-next)'],
+		avenirNextRegular: ['var(--avenir-next-regular)'],
+	},
+  	extend: {
+		screens: {
+        'xs': '400px',
+      	},
+  		colors: {
+  			iPrimary:'var(--imaraPrimary)',
+			iBlue:'var(--imaraBlue)',
+			iSecondary:'var(--imaraSecondary)',
+			iNeutral:'var(--imaraNeutral)',
+			iGray:'var(--imaraGray)',
+  		},
+  		borderRadius: {
+  			lg: 'var(--radius)',
+  			md: 'calc(var(--radius) - 2px)',
+  			sm: 'calc(var(--radius) - 4px)'
+  		}
+  	}
   },
-  darkMode: "class",
-  plugins: [nextui()],
+  darkMode: ["class", "class"],
+  plugins: [nextui(), require("tailwindcss-animate")],
 
 };
 export default config;
