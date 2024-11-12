@@ -37,4 +37,7 @@ padding-top: 70px;
 .btnBlueOutline{
   @apply bg-white text-iBlue hover:text-white px-3 py-2 rounded-sm hover:bg-iBlue border-1 border-iBlue flex gap-2 justify-center max-w-[160px] place-items-center font-avenirBlack
 }
+.btnWhite {
+  @apply bg-white text-iBlue hover:text-white px-3 py-2 rounded-sm hover:bg-iSecondary border-1 border-iBlue flex gap-2 justify-center max-w-[160px] place-items-center font-avenirBlack
+}
 }

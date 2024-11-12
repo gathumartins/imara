@@ -19,7 +19,7 @@ function Stats() {
           </p>
         </div>
         <div className="w-full md:w-1/2 grid sm:grid-cols-2 gap-5">
-          <div className="rounded hover:bg-iSecondary sm:first:mt-10 bg-white border-1 last:-mt-10 border-iSecondary h-[180px] [&_h4]:hover:text-white p-[20px] text-center [&_h5]:hover:text-white [&_p]:hover:text-white flex flex-col place-items-center">
+          <div className="rounded hover:bg-iSecondary sm:first:mt-10 bg-white border-1 sm:last:-mt-10 border-iSecondary h-[180px] [&_h4]:hover:text-white p-[20px] text-center [&_h5]:hover:text-white [&_p]:hover:text-white flex flex-col place-items-center">
             <div className="">
               <h4 className="text-iNeutral font-avenirBlack text-3xl">
                 <CountUp
@@ -47,7 +47,7 @@ function Stats() {
             </div>
           </div>
           {/* one  */}
-          <div className="rounded hover:bg-iSecondary sm:first:mt-10 bg-white border-1 last:-mt-10 border-iSecondary h-[180px] [&_h4]:hover:text-white p-[20px] text-center [&_h5]:hover:text-white [&_p]:hover:text-white flex flex-col place-items-center">
+          <div className="rounded hover:bg-iSecondary sm:first:mt-10 bg-white border-1 sm:last:-mt-10 border-iSecondary h-[180px] [&_h4]:hover:text-white p-[20px] text-center [&_h5]:hover:text-white [&_p]:hover:text-white flex flex-col place-items-center">
             <div className="">
               <h4 className="text-iNeutral font-avenirBlack text-3xl">
                 <CountUp
@@ -75,7 +75,7 @@ function Stats() {
             </div>
           </div>
           {/* one  */}
-          <div className="rounded hover:bg-iSecondary sm:first:mt-10 bg-white border-1 last:-mt-10 border-iSecondary h-[180px] [&_h4]:hover:text-white p-[20px] text-center [&_h5]:hover:text-white [&_p]:hover:text-white flex flex-col place-items-center">
+          <div className="rounded hover:bg-iSecondary sm:first:mt-10 bg-white border-1 sm:last:-mt-10 border-iSecondary h-[180px] [&_h4]:hover:text-white p-[20px] text-center [&_h5]:hover:text-white [&_p]:hover:text-white flex flex-col place-items-center">
             <div className="">
               <h4 className="text-iNeutral font-avenirBlack text-3xl">
                 <CountUp
@@ -103,7 +103,7 @@ function Stats() {
             </div>
           </div>
           {/* one  */}
-          <div className="rounded hover:bg-iSecondary sm:first:mt-10 bg-white border-1 last:-mt-10 border-iSecondary h-[180px] [&_h4]:hover:text-white p-[20px] text-center [&_h5]:hover:text-white [&_p]:hover:text-white flex flex-col place-items-center">
+          <div className="rounded hover:bg-iSecondary sm:first:mt-10 bg-white border-1 sm:last:-mt-10 border-iSecondary h-[180px] [&_h4]:hover:text-white p-[20px] text-center [&_h5]:hover:text-white [&_p]:hover:text-white flex flex-col place-items-center">
             <div className="">
               <h4 className="text-iNeutral font-avenirBlack text-3xl">
                 <CountUp

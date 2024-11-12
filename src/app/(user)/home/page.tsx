@@ -1,3 +1,4 @@
+import HomeAbout from '@/app/components/HomeAbout'
 import HomeHero from '@/app/components/HomeHero'
 import Partners from '@/app/components/Partners'
 import Program from '@/app/components/Program'
@@ -10,6 +11,7 @@ function page() {
     <>
     <HomeHero/>
     <Stats/>
+    <HomeAbout/>
     <Program/>
     <Partners/>
     <Testimonials/>
