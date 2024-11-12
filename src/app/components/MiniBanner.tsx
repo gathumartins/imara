@@ -9,11 +9,13 @@ function MiniBanner() {
     >
       <section className="bg-[#1D4C94]/65 min-h-[350px] flex justify-start place-items-center">
         <div className="container py-12 ">
-          <ul className="flex justify-start gap-4 mb-3 text-white [&_a]:hover:text-iSecondary font-avenirRoman text-lg">
+          <ul className="flex justify-start gap-2 mb-3 text-iSecondary font-avenirRoman text-lg">
             <li>
-              <Link href="/home">Home</Link>
+              <Link href="/home" className="text-white hover:text-iSecondary">
+                Home
+              </Link>
             </li>
-            <li>&gt;</li>
+            <li className="text-white">&gt;</li>
             <li>About US</li>
           </ul>
           <h1 className="font-avenirNextBold text-white text-3xl">
