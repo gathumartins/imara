@@ -4,11 +4,11 @@ import Image from 'next/image';
 
 function Program() {
   return (
-    <div
-      className="bg-contain bg-no-repeat bg-right-top"
-      style={{ backgroundImage: "url(/images/patternbg.webp)" }}
-    >
-      <article className="bg-[#B39B47]/90">
+    <div className="bg-[#B39B47]">
+      <article
+        className="bg-contain bg-no-repeat bg-right-top"
+        style={{ backgroundImage: "url(/images/patternbg.webp)" }}
+      >
         <section className="container  py-12">
           <h3 className="font-avenirNextBold text-white text-3xl text-center">
             Program Components
