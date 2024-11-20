@@ -15,9 +15,9 @@ function MiniBanner({data}:any) {
           backgroundImage: `url(${bg})`,
         }}
       >
-        <section className="bg-[#1D4C94]/65 min-h-[350px] flex justify-start place-items-center">
+        <section className="bg-[#1D4C94]/65 min-h-[250px] md:min-h-[350px] flex justify-start place-items-center">
           <div className="container py-12 ">
-            <ul className="flex justify-start gap-2 mb-3 text-iSecondary font-avenirRoman text-lg">
+            <ul className="flex justify-start gap-2 mb-3 text-iSecondary font-avenirRoman text-base md:text-lg">
               <li>
                 <Link href="/home" className="text-white hover:text-iSecondary">
                   Home
@@ -26,11 +26,11 @@ function MiniBanner({data}:any) {
               <li className="text-white">&gt;</li>
               {data && <li>{data.pageTitle}</li>}
             </ul>
-            <h1 className="font-avenirNextBold text-white text-3xl">
+            <h1 className="font-avenirNextBold text-white text-2xl md:text-3xl">
               Imara Africa Fellowship
             </h1>
             {data && (
-              <h2 className="text-iSecondary font-avenirNextBold text-2xl">
+              <h2 className="text-iSecondary font-avenirNextBold text-xl md:text-2xl">
                 {data.pageTitle}
               </h2>
             )}
