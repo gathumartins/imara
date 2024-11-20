@@ -30,9 +30,14 @@ async function page() {
     const mini = data.data.page.pageBanners;
   return (
     <>
-    <MiniBanner data={mini}/>
+      <MiniBanner data={mini} />
+      <article className="bg-[#EEF3FC]">
+        <section className="py-12 max-w-[1200px] mx-auto">
+          <h1>Terms and Conditions</h1>
+        </section>
+      </article>
     </>
-  )
+  );
 }
 
 export default page
