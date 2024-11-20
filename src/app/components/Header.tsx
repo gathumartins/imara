@@ -6,6 +6,7 @@ import {
   SheetContent,
   SheetDescription,
   SheetHeader,
+  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import React, { useState, useEffect } from "react";
@@ -46,14 +47,15 @@ function Header({menu, lay}:any) {
                 <AiOutlineMenuFold className="w-8 h-8" />
               </SheetTrigger>
             </div>
-            <SheetContent className="lg:hidden [&_svg]:w-10 [&_svg]:text-iPrimary [&_svg]:hover:text-iSecondary [&_svg]:h-8 [&_button]:top-4 [&_button]:left-4">
-              <SheetHeader className="h-[50px] shadow-sm">
-                <SheetDescription className="py-10">
-                  <ul className="h-full flex flex-col mx-auto max-lg:gap-6 w-[300px] lg:w-full lg:flex-row place-items-center justify-between font-avenirRoman flex-grow">
+            <SheetContent className="lg:hidden [&_svg]:w-10 [&_svg]:text-iPrimary [&_svg]:hover:text-iSecondary [&_svg]:h-8 [&_button]:top-6 [&_button]:left-4 p-0">
+              <SheetHeader>
+                <SheetTitle className="border-b-1 p-5 h-[75px]"></SheetTitle>
+                <SheetDescription className="">
+                  <ul className="flex flex-col justify-around font-bold font-avenirRoman flex-grow [&_li]:text-center">
                     {menu.map((menu: any) => (
-                      <li key={menu.node.id}>
+                      <li key={menu.node.id} className="mt-4">
                         <Link
-                          className="text-iNeutral hover:text-iBlue text-base capitalize"
+                          className="text-iNeutral hover:text-iBlue text-lg capitalize"
                           href={menu.node.uri}
                           onClick={() => setOpen(false)}
                         >
