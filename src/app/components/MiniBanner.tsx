@@ -15,7 +15,7 @@ function MiniBanner({data}:any) {
           backgroundImage: `url(${bg})`,
         }}
       >
-        <section className="bg-[#1D4C94]/65 min-h-[250px] md:min-h-[350px] flex justify-start place-items-center">
+        <section className="bg-[#1D4C94]/65 min-h-[200px] md:min-h-[350px] flex justify-start place-items-center">
           <div className="container py-12 ">
             <ul className="flex justify-start gap-2 mb-3 text-iSecondary font-avenirRoman text-base md:text-lg">
               <li>

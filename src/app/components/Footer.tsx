@@ -100,7 +100,7 @@ function Footer({ progs, quicks, orgs, lay }: any) {
                 <h2 className="text-base text-white font-avenirRoman">
                   Subscribe to our newsletter
                 </h2>
-                <section className="flex flex-row bg-white p-1 rounded">
+                <section className="flex max-md:mx-4 flex-row bg-white p-1 rounded">
                   <label htmlFor="email" className="sr-only">
                     Email
                   </label>
