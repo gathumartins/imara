@@ -24,10 +24,10 @@ function Program() {
             >
               <figure className="w-28 h-28">
                 <Image
-                  src="/images/icon.png"
+                  src="/images/proicon.svg"
                   alt="Imara Program Icon"
-                  width={43}
-                  height={45}
+                  width={60}
+                  height={60}
                 />
               </figure>
               <div>
@@ -47,10 +47,10 @@ function Program() {
             >
               <figure className="w-28 h-28">
                 <Image
-                  src="/images/icon.png"
+                  src="/images/proicon.svg"
                   alt="Imara Program Icon"
-                  width={43}
-                  height={45}
+                  width={60}
+                  height={60}
                 />
               </figure>
               <div>
@@ -70,10 +70,10 @@ function Program() {
             >
               <figure className="w-28 h-28">
                 <Image
-                  src="/images/icon.png"
+                  src="/images/proicon.svg"
                   alt="Imara Program Icon"
-                  width={43}
-                  height={45}
+                  width={60}
+                  height={60}
                 />
               </figure>
               <div>
@@ -93,10 +93,10 @@ function Program() {
             >
               <figure className="w-28 h-28">
                 <Image
-                  src="/images/icon.png"
+                  src="/images/proicon.svg"
                   alt="Imara Program Icon"
-                  width={43}
-                  height={45}
+                  width={60}
+                  height={60}
                 />
               </figure>
               <div>
