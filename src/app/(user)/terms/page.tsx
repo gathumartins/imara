@@ -10,6 +10,7 @@ async function page() {
     uri
     slug
     link
+    content
     pageBanners {
       pageTitle
       bannerImage {
@@ -32,9 +33,10 @@ async function page() {
     <>
       <MiniBanner data={mini} />
       <article className="bg-[#EEF3FC]">
-        <section className="py-12 max-w-[1200px] mx-auto">
-          <h1>Terms and Conditions</h1>
-        </section>
+        <section
+          className="py-12 px-4 max-w-[1000px] mx-auto [&_h1]:text-iBlue [&_ul]:ml-10 [&_ol]:ml-10 [&_ul>li]:list-disc [&_ol>li]:list-decimal [&_b]:font-bold [&_strong]:font-bold [&_li]:text-base [&_p]:text-base [&_p]:text-iNeutral [&_li]:text-iNeutral [&_h3]:text-iBlue"
+          dangerouslySetInnerHTML={{ __html: data.data.page.content }}
+        ></section>
       </article>
     </>
   );
