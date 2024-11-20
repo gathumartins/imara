@@ -44,4 +44,7 @@ margin: 0px;
 .btnWhite {
   @apply bg-white text-iBlue hover:text-white px-3 py-2 rounded-sm hover:bg-iSecondary border-1 border-iBlue flex gap-2 justify-center max-w-[160px] place-items-center font-avenirBlack
 }
+.myTabs{
+  @apply text-xl w-full sm:w-auto mb-1 font-avenirNextBold text-white max-sm:bg-iBlue data-[state=active]:bg-iSecondary sm:data-[state=active]:bg-transparent data-[state=active]:border-b-iBlue sm:border-b-transparent flex-grow sm:border-b-4 sm:rounded-none data-[state=active]:text-white sm:data-[state=active]:text-iBlue max-sm:p-3 sm:text-iNeutral
+}
 }
