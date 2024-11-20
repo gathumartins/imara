@@ -89,7 +89,7 @@ function Footer({ progs, quicks, orgs, lay }: any) {
                   ))}
                 </ul>
               </nav>
-              <div className="w-full mx-auto md:ml-0 lg:mr-0 h-[190px] rounded bg-white/25 py-5 px-4 max-w-[300px]">
+              <div className="w-full mx-auto md:ml-0 lg:mr-0 h-[190px] rounded bg-white/25 py-5 px-4 sm:max-w-[300px]">
                 <form
                   action=""
                   className="w-full flex flex-col justify-center place-items-center gap-2"
