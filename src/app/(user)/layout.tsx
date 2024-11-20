@@ -57,6 +57,33 @@ export default async function MainLayout({
     }
   }   
 
+  layout: layout(id: "cG9zdDo5OQ==") {
+    headerFooter {
+      logo {
+        node {
+          sourceUrl
+        }
+      }
+      register {
+        registerTitle
+        registerDescription
+        buttonLink {
+          title
+          target
+          url
+        }
+        registerImage {
+          node {
+            sourceUrl
+            mediaDetails {
+              height
+              width
+            }
+          }
+        }
+      }
+    }
+  }
   
   }`;
   const res = await fetch(
@@ -66,17 +93,18 @@ export default async function MainLayout({
       next: { revalidate: 60 },
     }
   );
+
   const data = await res.json();
   const mainMenu = data.data.topMenu.menuItems.edges;
   const programsMenu = data.data.programsMenu.menuItems.edges;
   const orgMenu = data.data.orgMenu.menuItems.edges;
   const quickMenu = data.data.quickMenu.menuItems.edges;
-  // console.log(quickMenu);
+  const lay = data.data.layout.headerFooter;
 return (
   <main id="top">
-    <Header menu={mainMenu}/>
+    <Header menu={mainMenu} lay={lay}/>
     {children}
-    <Footer progs={programsMenu} orgs={orgMenu} quicks={quickMenu}/>
+    <Footer progs={programsMenu} orgs={orgMenu} quicks={quickMenu} lay={lay}/>
   </main>
 );
 }

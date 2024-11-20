@@ -3,7 +3,7 @@ import { IoMdArrowRoundForward } from "react-icons/io";
 import Image from "next/image";
 import Link from "next/link";
 
-function Register() {
+function Register({lay}:any) {
   return (
     <section className="bg-white">
       <div className="container py-12 flex flex-col-reverse md:flex-row justify-between gap-10 place-items-center">
@@ -16,17 +16,20 @@ function Register() {
         />
         <div className="flex flex-col justify-start md:w-1/2 gap-4">
           <h3 className="font-avenirBlack text-3xl text-iBlue lg:w-3/4">
-            Excited to Join us?, Register for our next intake
+            {lay.register.registerTitle}
           </h3>
-          <p className="font-avenirRoman text-base lg:w-3/4 text-iNeutral">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Praesentium alias provident enim eveniet consequuntur sapiente velit
-            id quasi voluptate molestiae.
-          </p>
-          <Link href="/" className="btnBlueOutline">
-            Register
-            <IoMdArrowRoundForward />
-          </Link>
+          <div
+            className="font-avenirRoman text-base lg:w-3/4 text-iNeutral"
+            dangerouslySetInnerHTML={{
+              __html: lay.register.registerDescription,
+            }}
+          ></div>
+          {lay.register.buttonLink.url !== null && (
+            <Link href={lay.register.buttonLink.url} className="btnBlueOutline">
+              {lay.register.buttonLink.title}
+              <IoMdArrowRoundForward />
+            </Link>
+          )}
         </div>
       </div>
     </section>

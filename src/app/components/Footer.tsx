@@ -5,7 +5,7 @@ import Link from "next/link";
 import { FaXTwitter, FaFacebookF, FaInstagram } from "react-icons/fa6";
 import Register from "./Register";
 
-function Footer({ progs, quicks, orgs }: any) {
+function Footer({ progs, quicks, orgs, lay }: any) {
       const [email, setEmail] = useState("");
       const [state, setState] = useState("idle");
       const [errorMsg, setErrorMsg] = useState<{ title: string } | null>(null);
@@ -35,7 +35,7 @@ function Footer({ progs, quicks, orgs }: any) {
   return (
     <footer>
       <article>
-      <Register/>
+      <Register lay={lay}/>
         <section className="bg-iBlue pt-8 pb-6">
           <div className="container">
             <div className="footer-top mb-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-between gap-5">

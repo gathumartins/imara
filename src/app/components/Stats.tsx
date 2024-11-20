@@ -6,7 +6,7 @@ import { PiChartBarThin } from "react-icons/pi";
 
 function Stats() {
   return (
-    <article className="bg-[#EEF3FC] py-12">
+    <article className="bg-[#EEF3FC] px-5 py-12">
       <section className="bg-white container rounded py-12 px-[30px] md:px-[50px] lg:px-[80px] flex flex-col md:flex-row justify-between gap-8 place-items-center">
         <div className="md:w-1/2">
           <PiChartBarThin className="text-iSecondary w-12 h-12 font-bold"/>
