@@ -3,6 +3,9 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FaXTwitter, FaFacebookF, FaInstagram } from "react-icons/fa6";
+import { IoIosSend } from "react-icons/io";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
+
 import Register from "./Register";
 
 function Footer({ progs, quicks, orgs, lay }: any) {
@@ -35,7 +38,7 @@ function Footer({ progs, quicks, orgs, lay }: any) {
   return (
     <footer>
       <article>
-      <Register lay={lay}/>
+        <Register lay={lay} />
         <section className="bg-iBlue pt-8 pb-6">
           <div className="container">
             <div className="footer-top mb-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-between gap-5">
@@ -86,55 +89,63 @@ function Footer({ progs, quicks, orgs, lay }: any) {
                   ))}
                 </ul>
               </nav>
-              <form
-                action=""
-                className="w-full mx-auto md:mr-0 h-[190px] rounded bg-white/25 p-5 flex flex-col justify-center place-items-center gap-2"
-              >
-                <Image
-                  src="/images/envelope.png"
-                  alt="Imara fellowship subscribe newsletter form envelope icon"
-                  width="48"
-                  height="48"
-                  className="inline-block"
-                />
-                <h2 className="text-base text-white font-avenirRoman">
-                  Subscribe to our newsletter
-                </h2>
-                <section className="flex max-md:mx-4 flex-row bg-white p-1 rounded">
-                  <label htmlFor="email" className="sr-only">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Email Address"
-                    className="rounded-lg p-2 focus:ring-0 focus:shadow-none focus:border-none"
-                    required
+              <div className="w-full mx-auto md:ml-0 lg:mr-0 h-[190px] rounded bg-white/25 py-5 px-4 max-w-[300px]">
+                <form
+                  action=""
+                  className="w-full flex flex-col justify-center place-items-center gap-2"
+                >
+                  <Image
+                    src="/images/envelope.png"
+                    alt="Imara fellowship subscribe newsletter form envelope icon"
+                    width="48"
+                    height="48"
+                    className="inline-block h-10 w-10"
                   />
-                  <input
-                    type="submit"
-                    value="Subscribe"
-                    className="bg-iSecondary rounded-lg text-center px-2 cursor-pointer text-sm text-white"
-                    disabled={state === "Loading"}
-                    onClick={subscribe}
-                  />
-                </section>
-                <section className="text-left h-4">
-                  {state === "Error" && errorMsg && (
-                    <div className="text-red-500 text-md">
-                      *{errorMsg.title}
-                    </div>
-                  )}
-                  {state === "Success" && (
-                    <div className="text-green-500 text-md">
-                      Success. Thank You Subscribing our Newsletter
-                    </div>
-                  )}
-                </section>
-              </form>
+                  <h2 className="text-base text-white font-avenirRoman">
+                    Subscribe to our newsletter
+                  </h2>
+                  <section className="flex max-md:mx-4 flex-row bg-white p-1 rounded">
+                    <label htmlFor="email" className="sr-only">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      id="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="Email Address"
+                      className="rounded-lg p-2 focus:ring-0 focus:shadow-none focus:border-none flex-1"
+                      required
+                    />
+                    <button
+                      type="submit"
+                      className="bg-iSecondary rounded-lg text-center px-2 cursor-pointer text-3xl text-white w-10 flex justify-center place-items-center"
+                      disabled={state === "Loading"}
+                      onClick={subscribe}
+                    >
+                      <span className="sr-only">Subscribe</span>
+                      {state === "Loading" ? (
+                        <AiOutlineLoading3Quarters/>
+                      ) : (
+                        <IoIosSend/>
+                      )}
+                    </button>
+                  </section>
+                  <section className="text-left h-4">
+                    {state === "Error" && errorMsg && (
+                      <div className="text-red-500 text-md">
+                        *{errorMsg.title}
+                      </div>
+                    )}
+                    {state === "Success" && (
+                      <div className="text-green-500 text-md">
+                        Success. Thank You Subscribing our Newsletter
+                      </div>
+                    )}
+                  </section>
+                </form>
+              </div>
             </div>
             <div className="footer-btm border-t-1 border-iGray flex flex-col md:flex-row justify-between pt-5">
               <ul className="flex flex-row max-w-[300px] mx-auto mb-4 md:ml-0 gap-8 justify-between [&_li]:w-[24px] [&_li]:h-[24px] [&_li]:border-1 [&_li]:border-white [&_li]:rounded-md">
