@@ -148,8 +148,8 @@ function Slider() {
             </Card>
           </CarouselItem>
         </CarouselContent>
-        <CarouselPrevious className="ml-8 bg-iBlue text-white" />
-        <CarouselNext className="mr-8 bg-iBlue text-white" />
+        <CarouselPrevious className="ml-8 bg-iBlue text-white invisible sm:visible" />
+        <CarouselNext className="mr-8 bg-iBlue text-white invisible sm:visible" />
       </Carousel>
     </div>
   );
