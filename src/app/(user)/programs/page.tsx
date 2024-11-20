@@ -1,8 +1,44 @@
+import MiniBanner from '@/app/components/MiniBanner'
+import Partners from '@/app/components/Partners';
+import PartnerSlider from '@/app/components/PartnerSlider';
+import Program from '@/app/components/Program';
+import Testimonials from '@/app/components/Testimonials';
 import React from 'react'
 
-function page() {
+async function page() {
+    const query = `
+  {
+  page:page(id: "cG9zdDoxNA==") {
+    id
+    title
+    uri
+    slug
+    link
+    pageBanners {
+      pageTitle
+      bannerImage {
+        node {
+          mediaItemUrl
+        }
+      }
+    }
+  }
+}
+  `;
+
+    const result = await fetch(
+      `${process.env.WORDPRESS_API_URL}?query=${encodeURIComponent(query)}`,
+      { headers: { "Content-Type": "application/json" } }
+    );
+    const data = await result.json();
+    const mini = data.data.page.pageBanners;
   return (
-    <div>Programs page</div>
+    <>
+    <MiniBanner data={mini}/>
+    <Program/>
+    <Testimonials/>
+    <Partners/>
+    </>
   )
 }
 

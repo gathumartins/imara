@@ -2,9 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-#top {
-padding-top: 70px;
+/* body{
+  margin-top: 0px;;
 }
+#top {
+padding: 0px;
+margin: 0px;
+} */
 
 @layer utilities {
   .text-balance {

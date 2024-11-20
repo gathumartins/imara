@@ -15,9 +15,9 @@ function Register() {
           className="inline-block rounded flex-grow"
         />
         <div className="flex flex-col justify-start md:w-1/2 gap-4">
-          <h2 className="font-avenirBlack text-3xl text-iBlue lg:w-3/4">
+          <h3 className="font-avenirBlack text-3xl text-iBlue lg:w-3/4">
             Excited to Join us?, Register for our next intake
-          </h2>
+          </h3>
           <p className="font-avenirRoman text-base lg:w-3/4 text-iNeutral">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit.
             Praesentium alias provident enim eveniet consequuntur sapiente velit

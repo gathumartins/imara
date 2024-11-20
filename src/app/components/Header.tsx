@@ -17,7 +17,7 @@ import TopNav from "./TopNav";
 function Header({menu}:any) {
   const [open, setOpen] = useState(false);
   return (
-    <header className="bg-white py-2 fixed w-full top-0 z-10">
+    <header className="bg-white py-2 sticky w-full top-0 z-10 shadow-md">
       <div className="container flex justify-between gap-6 place-items-center">
         <Image
           src="/images/logo.svg"

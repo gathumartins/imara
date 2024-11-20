@@ -1,10 +1,39 @@
+import MiniBanner from '@/app/components/MiniBanner'
 import React from 'react'
 
-function page({params}:any) {
+async function page({params}:any) {
+    const query = `
+  {
+  page:page(id: "cG9zdDoxNg==") {
+    id
+    title
+    uri
+    slug
+    link
+    pageBanners {
+      pageTitle
+      bannerImage {
+        node {
+          mediaItemUrl
+        }
+      }
+    }
+  }
+}
+  `;
 
+    const result = await fetch(
+      `${process.env.WORDPRESS_API_URL}?query=${encodeURIComponent(query)}`,
+      { headers: { "Content-Type": "application/json" } }
+    );
+    const data = await result.json();
+    const mini = data.data.page.pageBanners;
   // console.log(params)
   return (
-    <div>Program ID: {params.programId}</div>
+    <>
+    <MiniBanner data={mini}/>
+    Program ID: {params.programId}
+    </>
   )
 }
 
