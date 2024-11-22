@@ -50,7 +50,7 @@ function Footer({ progs, quicks, orgs, lay }: any) {
                   {progs.map((prog: any) => (
                     <li
                       key={prog.node.id}
-                      className="mb-2 text-white hover:text-iSecondary text-base font-avenirRoman"
+                      className="mb-3 text-white hover:text-iSecondary text-base font-avenirRoman"
                     >
                       <Link href={`/programs/${prog.node.uri}`}>
                         {prog.node.label}
@@ -67,7 +67,7 @@ function Footer({ progs, quicks, orgs, lay }: any) {
                   {orgs.map((org: any) => (
                     <li
                       key={org.node.id}
-                      className="mb-2 text-white hover:text-iSecondary text-base font-avenirRoman"
+                      className="mb-3 text-white hover:text-iSecondary text-base font-avenirRoman"
                     >
                       <Link href={org.node.uri}>{org.node.label}</Link>
                     </li>
@@ -82,17 +82,17 @@ function Footer({ progs, quicks, orgs, lay }: any) {
                   {quicks.map((quick: any) => (
                     <li
                       key={quick.node.id}
-                      className="mb-2 text-white hover:text-iSecondary text-base font-avenirRoman"
+                      className="mb-3 text-white hover:text-iSecondary text-base font-avenirRoman"
                     >
                       <Link href={quick.node.uri}>{quick.node.label}</Link>
                     </li>
                   ))}
                 </ul>
               </nav>
-              <div className="w-full mx-auto md:ml-0 lg:mr-0 h-[190px] rounded bg-white/25 py-5 px-4 sm:max-w-[300px]">
+              <div className="w-full mx-auto md:ml-0 lg:mr-0 h-[200px] rounded bg-white/25 py-5 px-4 sm:max-w-[300px] basis-1">
                 <form
                   action=""
-                  className="w-full flex flex-col justify-center place-items-center gap-2"
+                  className="w-full flex flex-col justify-center place-items-center gap-2 h-full"
                 >
                   <Image
                     src="/images/envelope.png"
@@ -104,7 +104,7 @@ function Footer({ progs, quicks, orgs, lay }: any) {
                   <h2 className="text-base text-white font-avenirRoman">
                     Subscribe to our newsletter
                   </h2>
-                  <section className="flex max-md:mx-4 flex-row bg-white p-1 rounded">
+                  <section className="flex max-md:mx-4 flex-row bg-white p-1 rounded-md">
                     <label htmlFor="email" className="sr-only">
                       Email
                     </label>
@@ -115,12 +115,12 @@ function Footer({ progs, quicks, orgs, lay }: any) {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Email Address"
-                      className="rounded-lg p-2 focus:ring-0 focus:shadow-none focus:border-none flex-1"
+                      className="rounded-l-md p-2 focus:outline-none border-white focus:ring-1 focus:ring-iSecondary focus:shadow-none focus:border-iBlue flex-1 placeholder:text-sm placeholder:text-iNeutral text-black"
                       required
                     />
                     <button
                       type="submit"
-                      className="bg-iSecondary rounded-lg text-center px-2 cursor-pointer text-3xl text-white w-10 flex justify-center place-items-center"
+                      className="bg-iSecondary rounded-r-md border-iSecondary border ring-1 text-center px-2 ring-iSecondary cursor-pointer text-3xl text-white w-10 flex justify-center place-items-center"
                       disabled={state === "Loading"}
                       onClick={subscribe}
                     >
@@ -139,7 +139,7 @@ function Footer({ progs, quicks, orgs, lay }: any) {
                       </div>
                     )}
                     {state === "Success" && (
-                      <div className="text-green-500 text-md">
+                      <div className="text-green-500 text-xs text-center">
                         Success. Thank You Subscribing our Newsletter
                       </div>
                     )}
