@@ -19,7 +19,7 @@ function ContactForm() {
           </p>
         </header>
         <section className="container pb-12">
-          <header className="max-w-[900px] border-b-1 border-b-iBlue/80 mb-8">
+          <header className="max-w-[1000px] border-b-1 border-b-iNeutral/90 mb-8">
             <h4 className="font-avenirBlack text-2xl text-iBlue mb-2">
               Having Unanswered Questions?
             </h4>
@@ -164,7 +164,7 @@ function ContactForm() {
                 </div>
                 <button
                   type="submit"
-                  className="bg-iBlue hover:bg-iSecondary px-3 text-white w-[180px] mx-auto h-[50px] flex place-items-center justify-center text-center rounded text-xl font-avenirRoman ml-0 mt-4"
+                  className="bg-iBlue hover:bg-iSecondary px-3 text-white w-[180px] mx-auto h-[45px] flex place-items-center justify-center text-center rounded text-lg font-avenirRoman ml-0 mt-3"
                 >
                   Send Message
                 </button>
