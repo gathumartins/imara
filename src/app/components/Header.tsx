@@ -25,6 +25,7 @@ function Header({menu, lay}:any) {
             alt="Imara Fellowship Logo"
             width={149}
             height={60}
+            priority
           />
         )}
         <nav className="flex-grow max-w-[850px] hidden lg:flex flex-row">

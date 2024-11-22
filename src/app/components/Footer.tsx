@@ -43,7 +43,7 @@ function Footer({ progs, quicks, orgs, lay }: any) {
           <div className="container">
             <div className="footer-top mb-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-between gap-5">
               <nav className="w-[1/3]">
-                <h2 className="text-iSecondary text-lg mb-3 font-avenirNextBold">
+                <h2 className="text-iSecondary text-lg mb-4 font-avenirNextBold">
                   Programs
                 </h2>
                 <ul>
@@ -60,7 +60,7 @@ function Footer({ progs, quicks, orgs, lay }: any) {
                 </ul>
               </nav>
               <nav className="">
-                <h2 className="text-iSecondary text-lg mb-3 font-avenirNextBold">
+                <h2 className="text-iSecondary text-lg mb-4 font-avenirNextBold">
                   Imara Organization
                 </h2>
                 <ul>
@@ -75,7 +75,7 @@ function Footer({ progs, quicks, orgs, lay }: any) {
                 </ul>
               </nav>
               <nav>
-                <h2 className="text-iSecondary text-lg mb-3 font-avenirNextBold">
+                <h2 className="text-iSecondary text-lg mb-4 font-avenirNextBold">
                   Quick Links
                 </h2>
                 <ul>
@@ -89,7 +89,7 @@ function Footer({ progs, quicks, orgs, lay }: any) {
                   ))}
                 </ul>
               </nav>
-              <div className="w-full mx-auto md:ml-0 lg:mr-0 h-[200px] rounded bg-white/25 py-5 px-4 sm:max-w-[300px] basis-1">
+              <div className="w-full mx-auto md:ml-0 lg:mr-0 rounded bg-white/25 py-5 px-4 sm:max-w-[300px]">
                 <form
                   action=""
                   className="w-full flex flex-col justify-center place-items-center gap-2 h-full"
@@ -147,7 +147,7 @@ function Footer({ progs, quicks, orgs, lay }: any) {
                 </form>
               </div>
             </div>
-            <div className="footer-btm border-t-1 border-iGray flex flex-col md:flex-row justify-between pt-5">
+            <div className="footer-btm border-t-1 border-iGray flex flex-col md:flex-row justify-between pt-8">
               <ul className="flex flex-row max-w-[300px] mx-auto mb-4 md:ml-0 gap-8 justify-between [&_li]:w-[24px] [&_li]:h-[24px] [&_li]:border-1 [&_li]:border-white [&_li]:rounded-md">
                 <li className="flex justify-center place-items-center text-white hover:text-iSecondary">
                   <Link

@@ -1,5 +1,6 @@
-import MiniBanner from '@/app/components/MiniBanner'
-import React from 'react'
+import MiniBanner from '@/app/components/MiniBanner';
+import MyPagination from '@/app/components/MyPagination';
+import React from 'react';
 
 async function page() {
     const query = `
@@ -10,6 +11,7 @@ async function page() {
     uri
     slug
     link
+    content
     pageBanners {
       pageTitle
       bannerImage {
@@ -28,11 +30,20 @@ async function page() {
     );
     const data = await result.json();
     const mini = data.data.page.pageBanners;
+    let reports = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+    const itemsPerPage = 6;
   return (
     <>
-    <MiniBanner data={mini}/>
+      <MiniBanner data={mini} />
+      <article className="bg-[#EEF3FC] py-12">
+        <section
+          className="container text-center [&_p]:max-w-[850px] [&_p]:mx-auto [&_p]:text-iNeutral [&_p]:text-base [&-p]:font-avenirRoman mb-10"
+          dangerouslySetInnerHTML={{ __html: data.data.page.content }}
+        ></section>
+        <MyPagination items={reports} ipp={6} />
+      </article>
     </>
-  )
+  );
 }
 
 export default page
