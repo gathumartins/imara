@@ -1,6 +1,7 @@
 import MiniBanner from '@/app/components/MiniBanner';
 import MyPagination from '@/app/components/MyPagination';
 import React from 'react';
+import Report from '@/app/components/Report';
 
 async function page() {
     const query = `
@@ -23,7 +24,6 @@ async function page() {
   }
 }
   `;
-
     const result = await fetch(
       `${process.env.WORDPRESS_API_URL}?query=${encodeURIComponent(query)}`,
       { headers: { "Content-Type": "application/json" } }
@@ -32,6 +32,7 @@ async function page() {
     const mini = data.data.page.pageBanners;
     let reports = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
     const itemsPerPage = 6;
+    const comp = "report"
   return (
     <>
       <MiniBanner data={mini} />
@@ -40,7 +41,7 @@ async function page() {
           className="container text-center [&_p]:max-w-[850px] [&_p]:mx-auto [&_p]:text-iNeutral [&_p]:text-base [&-p]:font-avenirRoman mb-10"
           dangerouslySetInnerHTML={{ __html: data.data.page.content }}
         ></section>
-        <MyPagination items={reports} ipp={6} />
+        <MyPagination items={reports} ipp={itemsPerPage} comp={comp}/>
       </article>
     </>
   );

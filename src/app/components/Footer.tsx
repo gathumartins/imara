@@ -16,7 +16,6 @@ function Footer({ progs, quicks, orgs, lay }: any) {
       const subscribe = async (e: any) => {
         e.preventDefault();
         setState("Loading");
-        // from api route
         const res = await fetch(`/api/subscribe`, {
           method: "POST",
           headers: {
@@ -26,9 +25,7 @@ function Footer({ progs, quicks, orgs, lay }: any) {
         });
         const data = await res.json();
         if (data.error) {
-          console.log(data.error);
           setErrorMsg(data.error);
-          // console.log(errorMsg)
           setState("Error");
           return;
         }
@@ -139,6 +136,7 @@ function Footer({ progs, quicks, orgs, lay }: any) {
                       </div>
                     )}
                     {state === "Success" && (
+                      
                       <div className="text-green-500 text-xs text-center">
                         Success. Thank You Subscribing our Newsletter
                       </div>

@@ -20,6 +20,27 @@ async function page() {
       }
     }
   }
+  cohorts:cohorts {
+    edges {
+      node {
+        name
+        description
+        slug
+        id
+        fellowCohort {
+          cohortImage {
+            node {
+              mediaDetails {
+                width
+                height
+              }
+              mediaItemUrl
+            }
+          }
+        }
+      }
+    }
+  }  
 }
   `;
 
@@ -29,28 +50,29 @@ async function page() {
     );
     const data = await result.json();
     const mini = data.data.page.pageBanners;
-  return (
-    <>
-      <MiniBanner data={mini} />
-      <article className="bg-[#EEF3FC] py-12">
-        <section className="container [&_p]:max-w-[842px] [&_p]:mx-auto [&_p]:text-base [&_p]:text-iNeutral text-center [&_p]:font-avenirRoman">
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim
-            aperiam officiis cumque! Doloremque a nisi explicabo veniam dolorum
-            nobis culpa natus dicta quia! Vitae ad ex illum debitis expedita
-            soluta sequi nostrum amet itaque voluptates reiciendis eius,
-            consequuntur corporis! Incidunt, vitae dolor. Sunt fuga amet officia
-            minus sit sint. Laudantium?
-          </p>
-        </section>
-        <section className="container mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          <CohortCard />
-          <CohortCard />
-          <CohortCard />
-        </section>
-      </article>
-    </>
-  );
+    const cohorts = data.data.cohorts.edges;
+    return (
+      <>
+        <MiniBanner data={mini} />
+        <article className="bg-[#EEF3FC] py-12">
+          <section className="container [&_p]:max-w-[842px] [&_p]:mx-auto [&_p]:text-base [&_p]:text-iNeutral text-center [&_p]:font-avenirRoman">
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim
+              aperiam officiis cumque! Doloremque a nisi explicabo veniam
+              dolorum nobis culpa natus dicta quia! Vitae ad ex illum debitis
+              expedita soluta sequi nostrum amet itaque voluptates reiciendis
+              eius, consequuntur corporis! Incidunt, vitae dolor. Sunt fuga amet
+              officia minus sit sint. Laudantium?
+            </p>
+          </section>
+          <section className="container mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {cohorts.map((mycohort: any) => (
+              <CohortCard key={mycohort.node.id} data={mycohort}/>
+            ))}
+          </section>
+        </article>
+      </>
+    );
 }
 
 export default page
