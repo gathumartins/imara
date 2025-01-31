@@ -31,7 +31,7 @@ async function page() {
   return (
     <>
     <MiniBanner data={mini}/>
-    Impact page
+    Impact page Updated
     </>
   )
 }
