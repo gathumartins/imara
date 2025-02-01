@@ -9,7 +9,9 @@
 padding: 0px;
 margin: 0px;
 } */
-
+ html {
+  scroll-behavior: smooth;
+}
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -24,10 +26,10 @@ margin: 0px;
     --imaraSecondary:#B39B47;
     --imaraNeutral:#6D758F;
     --imaraGray:#E8E8E8;
-    
+
   }
   .dark {
-    
+
   }
 }
 * {

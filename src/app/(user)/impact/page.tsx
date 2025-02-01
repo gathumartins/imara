@@ -1,6 +1,9 @@
 import MiniBanner from '@/app/components/MiniBanner'
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
+import { FaUsers, FaUser } from "react-icons/fa";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 async function page() {
     const query = `
@@ -33,10 +36,87 @@ async function page() {
     <>
       <MiniBanner data={mini} />
       <article className="relative">
-        <section className="bg-white py-12 sticky top-[70px] left-0 w-full z-10 border-t-1">
-          <header className="container"></header>
+        <section className="bg-white py-6 sticky top-[70px] left-0 w-full z-1 border-t-1">
+          <header className="container">
+            <nav className="w-full relative hidden md:block">
+              <div className="w-[90%] ml-[5%] h-[2px] bg-iBlue absolute top-1/2"></div>
+              <ul className="flex gap-5 justify-around">
+                <li>
+                  <Link
+                    href="#capacity"
+                    className="flex flex-col gap-3 items-center"
+                  >
+                    <Image
+                      src="/images/capacity.svg"
+                      alt="Imara Impact page capacity icon"
+                      width={110}
+                      height={110}
+                      className="h-14 w-14 inline-block"
+                    />
+                    <Image
+                      src="/images/timeline.svg"
+                      alt="Imara Impact page capacity icon"
+                      width={15}
+                      height={88}
+                      className="inline-block h-14"
+                    />
+                    <span className="max-w-[300px] text-iBlue font-avenirNextBold text-xl">
+                      Capacity Building
+                    </span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="#partnership"
+                    className="flex flex-col gap-3 items-center"
+                  >
+                    <Image
+                      src="/images/partnership.svg"
+                      alt="Imara Impact page capacity icon"
+                      width={110}
+                      height={110}
+                      className="h-14 w-14 inline-block"
+                    />
+                    <Image
+                      src="/images/timeline.svg"
+                      alt="Imara Impact page capacity icon"
+                      width={15}
+                      height={88}
+                      className="inline-block h-14"
+                    />
+                    <span className="max-w-[300px] text-iBlue font-avenirNextBold text-xl">
+                      Partnerships
+                    </span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="#policy"
+                    className="flex flex-col items-center gap-3"
+                  >
+                    <Image
+                      src="/images/policy.svg"
+                      alt="Imara Impact page capacity icon"
+                      width={110}
+                      height={110}
+                      className="h-14 w-14 inline-block"
+                    />
+                    <Image
+                      src="/images/timeline.svg"
+                      alt="Imara Impact page capacity icon"
+                      width={15}
+                      height={88}
+                      className="inline-block h-14"
+                    />
+                    <span className="max-w-[300px] text-iBlue font-avenirNextBold text-xl">
+                      Developing Policy <br /> Recommendations
+                    </span>
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+          </header>
         </section>
-
         <section className="bg-[#EEF3FC] py-12 md:py-20" id="capacity">
           <header className="container mb-8">
             <ol className="list-decimal list-inside font-avenirNextBold text-iBlue text-3xl mb-5">
@@ -54,7 +134,64 @@ async function page() {
               </p>
             </div>
           </header>
-          <footer className="container"></footer>
+          <footer className="pt-6 container">
+            <Tabs defaultValue="individual" className="w-full">
+              <div className="flex flex-col">
+                <TabsList className="flex max-sm:min-h-[180px] flex-col sm:flex-row w-full sm:justify-evenly gap-1 sm:gap-5 border-b-1 border-b-iBlue rounded-none px-0">
+                  <TabsTrigger
+                    value="individual"
+                    className="text-xl w-full sm:w-auto mb-0 font-avenirNextBold text-white max-sm:bg-iBlue data-[state=active]:bg-iSecondary sm:data-[state=active]:bg-transparent data-[state=active]:border-b-iBlue sm:border-b-transparent flex-grow sm:border-b-4 sm:rounded-none data-[state=active]:text-white sm:data-[state=active]:text-iBlue max-sm:py-2 sm:text-iNeutral flex items-center justify-center gap-3"
+                  >
+                    <FaUser />
+                    <span> Individual Impact</span>
+                  </TabsTrigger>
+                  <TabsTrigger
+                    value="community"
+                    className="text-xl w-full sm:w-auto mb-0 font-avenirNextBold text-white max-sm:bg-iBlue data-[state=active]:bg-iSecondary sm:data-[state=active]:bg-transparent data-[state=active]:border-b-iBlue sm:border-b-transparent flex-grow sm:border-b-4 sm:rounded-none data-[state=active]:text-white sm:data-[state=active]:text-iBlue max-sm:py-2 sm:text-iNeutral flex items-center justify-center gap-3"
+                  >
+                    <FaUsers />
+                    <span>Community & County</span>
+                  </TabsTrigger>
+                </TabsList>
+                <div className="flex-grow">
+                  <TabsContent value="individual">
+                    <div className="py-10 text-justify text-base text-iNeutral font-avenirRoman">
+                      <p>
+                        Our fellows have advanced in their careers and studies
+                        in policy and governance. Notable examples include Ms.
+                        Gladys Ndanu, promoted for her role in Universal Health
+                        Care in Muranga County, influenced by a youth baraza
+                        panel discussion. Mr. Shadrack Osero earned a DAAD
+                        Helmut Schmidt Program scholarship for a Master’s in
+                        Public Management at the University of Potsdam, based on
+                        work addressing TVET policy gaps in Kericho.
+                        Additionally, Mr. Mathew Ndolo and Ms. Ivy Wandia
+                        Gathoni pursued policy studies at UC Berkeley and the
+                        Geneva Graduate Institute.
+                      </p>
+                    </div>
+                  </TabsContent>
+                  <TabsContent value="community">
+                    <div className="py-10 text-justify text-base text-iNeutral font-avenirRoman">
+                      <p>
+                        Our fellows have advanced in their careers and studies
+                        in policy and governance. Notable examples include Ms.
+                        Gladys Ndanu, promoted for her role in Universal Health
+                        Care in Muranga County, influenced by a youth baraza
+                        panel discussion. Mr. Shadrack Osero earned a DAAD
+                        Helmut Schmidt Program scholarship for a Master’s in
+                        Public Management at the University of Potsdam, based on
+                        work addressing TVET policy gaps in Kericho.
+                        Additionally, Mr. Mathew Ndolo and Ms. Ivy Wandia
+                        Gathoni pursued policy studies at UC Berkeley and the
+                        Geneva Graduate Institute.
+                      </p>
+                    </div>
+                  </TabsContent>
+                </div>
+              </div>
+            </Tabs>
+          </footer>
         </section>
 
         <section className="bg-white py-12 md:py-20" id="partnership">
