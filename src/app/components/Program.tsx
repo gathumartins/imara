@@ -19,7 +19,7 @@ function Program() {
           </p>
           <nav className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <Link
-              href="/home"
+              href="/programs/program/residential"
               className="min-h-[180px] bg-white rounded p-4 md:p-8 flex flex-row justify-start gap-4 shadow-md hover:shadow-iNeutral"
             >
               <figure className="w-28 h-28">
@@ -42,7 +42,7 @@ function Program() {
               </div>
             </Link>
             <Link
-              href="/home"
+              href="/programs/program/residential"
               className="min-h-[180px] bg-white rounded p-4 md:p-8 flex flex-row justify-start gap-4 shadow-md hover:shadow-iNeutral"
             >
               <figure className="w-28 h-28">
@@ -65,7 +65,7 @@ function Program() {
               </div>
             </Link>
             <Link
-              href="/home"
+              href="/programs/program/residential"
               className="min-h-[180px] bg-white rounded p-4 md:p-8 flex flex-row justify-start gap-4 shadow-md hover:shadow-iNeutral"
             >
               <figure className="w-28 h-28">
@@ -88,7 +88,7 @@ function Program() {
               </div>
             </Link>
             <Link
-              href="/home"
+              href="/programs/program/residential"
               className="min-h-[180px] bg-white rounded p-4 md:p-8 flex flex-row justify-start gap-4 shadow-md hover:shadow-iNeutral"
             >
               <figure className="w-28 h-28">
