@@ -1,6 +1,7 @@
 import MiniBanner from '@/app/components/MiniBanner'
 import React from 'react'
 import Image from 'next/image'
+import OtherProgram from '@/app/components/OtherProgram';
 
 async function page({params}:any) {
     const query = `
@@ -80,7 +81,11 @@ async function page({params}:any) {
         >
           <footer className="container myPro">
             <h3>Other Programs</h3>
-            <div className="flex flex-col md:flex-row gap-5"></div>
+            <div className="flex flex-col justify-around md:flex-row gap-5">
+              <OtherProgram />
+              <OtherProgram />
+              <OtherProgram />
+            </div>
           </footer>
         </section>
       </article>

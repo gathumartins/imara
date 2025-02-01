@@ -2,6 +2,7 @@ import MiniBanner from '@/app/components/MiniBanner'
 import Partners from '@/app/components/Partners';
 import PartnerSlider from '@/app/components/PartnerSlider';
 import Program from '@/app/components/Program';
+import ProgramTop from '@/app/components/ProgramTop';
 import Testimonials from '@/app/components/Testimonials';
 import React from 'react'
 
@@ -35,6 +36,7 @@ async function page() {
   return (
     <>
     <MiniBanner data={mini}/>
+    <ProgramTop/>
     <Program/>
     <Testimonials/>
     <Partners/>
