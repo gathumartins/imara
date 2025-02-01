@@ -7,7 +7,10 @@ import Link from 'next/link';
 
 function ContactForm() {
   return (
-    <article className="bg-[#EEF3FC]">
+    <article
+      className="py-12 bg-[#EEF3FC] bg-cover bg-no-repeat bg-right-top"
+      style={{ backgroundImage: "url(/images/whitebg.png)" }}
+    >
       <section className="container pt-12">
         <header>
           <h3 className="font-avenirBlack text-3xl text-iSecondary max-w-[400px] mx-auto text-center">
@@ -99,7 +102,8 @@ function ContactForm() {
                     name="fullName"
                     id="fullName"
                     placeholder="Enter Full Name"
-                    className="p-2 rounded border border-white shadow focus:outline-none focus:border-iBlue focus:ring-iBlue focus:right-1 placeholder:text-iNeutral placeholder:text-sm" required
+                    className="p-2 rounded border border-white shadow focus:outline-none focus:border-iBlue focus:ring-iBlue focus:right-1 placeholder:text-iNeutral placeholder:text-sm"
+                    required
                   />
                 </div>
                 <div className="flex flex-col gap-1">
@@ -114,7 +118,8 @@ function ContactForm() {
                     name="email"
                     id="email"
                     placeholder="Enter Email Address"
-                    className="p-2 rounded border border-white shadow focus:outline-none focus:border-iBlue focus:ring-iBlue focus:right-1 placeholder:text-iNeutral placeholder:text-sm" required
+                    className="p-2 rounded border border-white shadow focus:outline-none focus:border-iBlue focus:ring-iBlue focus:right-1 placeholder:text-iNeutral placeholder:text-sm"
+                    required
                   />
                 </div>
                 <div className="flex flex-col gap-1">
@@ -129,7 +134,8 @@ function ContactForm() {
                     name="phone"
                     id="phone"
                     placeholder="Enter Phone Number"
-                    className="p-2 rounded border border-white shadow focus:outline-none focus:border-iBlue focus:ring-iBlue focus:right-1 placeholder:text-iNeutral placeholder:text-sm" required
+                    className="p-2 rounded border border-white shadow focus:outline-none focus:border-iBlue focus:ring-iBlue focus:right-1 placeholder:text-iNeutral placeholder:text-sm"
+                    required
                   />
                 </div>
                 <div className="flex flex-col gap-1">
@@ -144,7 +150,8 @@ function ContactForm() {
                     name="subject"
                     id="subject"
                     placeholder="Enter Subject"
-                    className="p-2 rounded border border-white shadow focus:outline-none focus:border-iBlue focus:ring-iBlue focus:right-1 placeholder:text-iNeutral placeholder:text-sm" required
+                    className="p-2 rounded border border-white shadow focus:outline-none focus:border-iBlue focus:ring-iBlue focus:right-1 placeholder:text-iNeutral placeholder:text-sm"
+                    required
                   />
                 </div>
                 <div className="flex flex-col gap-1 lg:col-span-2">
@@ -159,7 +166,8 @@ function ContactForm() {
                     id="message"
                     rows={2}
                     placeholder="Enter Message"
-                    className="p-2 rounded border border-white shadow focus:outline-none focus:border-iBlue focus:ring-iBlue focus:right-1 placeholder:text-iNeutral placeholder:text-sm" required
+                    className="p-2 rounded border border-white shadow focus:outline-none focus:border-iBlue focus:ring-iBlue focus:right-1 placeholder:text-iNeutral placeholder:text-sm"
+                    required
                   ></textarea>
                 </div>
                 <button

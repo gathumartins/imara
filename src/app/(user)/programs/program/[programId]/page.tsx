@@ -74,12 +74,13 @@ async function page({params}:any) {
             </figure>
           </div>
         </section>
-        <section className="py-12 bg-[#EEF3FC]">
+        <section
+          className="py-12 bg-[#EEF3FC] bg-cover bg-no-repeat bg-right-top"
+          style={{ backgroundImage: "url(/images/whitebg.png)" }}
+        >
           <footer className="container myPro">
             <h3>Other Programs</h3>
-            <div className="flex flex-col md:flex-row gap-5">
-
-            </div>
+            <div className="flex flex-col md:flex-row gap-5"></div>
           </footer>
         </section>
       </article>
