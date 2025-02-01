@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Pagination } from "@nextui-org/react";
 import Report from "@/app/components/Report";
 import Fellow from "./Fellow";
+import PostCard from "./PostCard";
 
 function MyPagination({ items, ipp, comp}: any) {
     const itemsPerPage = ipp;
@@ -19,6 +20,7 @@ function MyPagination({ items, ipp, comp}: any) {
           currentItems.map((item: any, i: number) => <Report key={i} />)}
         {comp == "fellow" &&
           currentItems.map((item: any, i: number) => <Fellow key={i} />)}
+        {comp == "blog" && currentItems.map((item: any, i: number) => <PostCard key={i} />)}
       </section>
       {items.length > 6 && (
         <footer className="container mt-5 flex justify-end">

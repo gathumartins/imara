@@ -1,7 +1,6 @@
 import MiniBanner from '@/app/components/MiniBanner';
 import MyPagination from '@/app/components/MyPagination';
 import React from 'react';
-import Report from '@/app/components/Report';
 
 async function page() {
     const query = `
