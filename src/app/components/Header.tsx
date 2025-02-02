@@ -17,7 +17,7 @@ import TopNav from "./TopNav";
 function Header({menu, lay}:any) {
   const [open, setOpen] = useState(false);
   return (
-    <header className="bg-white py-2 sticky w-full top-0 z-10 shadow-md">
+    <header className="bg-white py-2 sticky w-full top-0 z-20 shadow-md">
       <div className="container flex justify-between gap-6 place-items-center">
         {lay.logo !== null && (
           <Image
