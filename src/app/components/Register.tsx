@@ -10,9 +10,9 @@ function Register({lay}:any) {
         <Image
           src="/images/registerimg.webp"
           alt="Imara Fellowship resister section image"
-          width={542}
-          height={280}
-          className="inline-block rounded flex-grow"
+          width={1626}
+          height={840}
+          className="inline-block rounded flex-grow md:w-1/2"
         />
         <div className="flex flex-col justify-start md:w-1/2 gap-4">
           <h3 className="font-avenirBlack text-3xl text-iBlue lg:w-3/4">
