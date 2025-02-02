@@ -63,16 +63,18 @@ async function page() {
                 <TabsList className="flex max-sm:min-h-[180px] flex-col sm:flex-row w-full sm:justify-evenly gap-1 sm:gap-5 border-b-1 border-b-iBlue rounded-none px-0">
                   <TabsTrigger
                     value="individual"
-                    className="text-xl w-full sm:w-auto mb-0 font-avenirNextBold text-white max-sm:bg-iBlue data-[state=active]:bg-iSecondary sm:data-[state=active]:bg-transparent data-[state=active]:border-b-iBlue sm:border-b-transparent flex-grow sm:border-b-4 sm:rounded-none data-[state=active]:text-white sm:data-[state=active]:text-iBlue max-sm:py-2 sm:text-iNeutral flex items-center justify-center gap-3"
+                    className="text-xl w-full sm:w-auto mb-0 font-avenirNextBold text-white max-sm:bg-iBlue data-[state=active]:bg-iSecondary sm:data-[state=active]:bg-transparent data-[state=active]:border-b-iBlue sm:border-b-transparent flex-grow sm:border-b-4 sm:rounded-none data-[state=active]:text-white sm:data-[state=active]:text-iBlue max-sm:py-2 sm:text-iNeutral flex items-center justify-center gap-3 "
                   >
-                    <FaUser />
+                    <FaUser className="first:block last:hidden" />
+                    <FaUsers className="first:hidden last:block" />
                     <span> Individual Impact</span>
                   </TabsTrigger>
                   <TabsTrigger
                     value="community"
                     className="text-xl w-full sm:w-auto mb-0 font-avenirNextBold text-white max-sm:bg-iBlue data-[state=active]:bg-iSecondary sm:data-[state=active]:bg-transparent data-[state=active]:border-b-iBlue sm:border-b-transparent flex-grow sm:border-b-4 sm:rounded-none data-[state=active]:text-white sm:data-[state=active]:text-iBlue max-sm:py-2 sm:text-iNeutral flex items-center justify-center gap-3"
                   >
-                    <FaUsers />
+                    <FaUser className="first:block last:hidden" />
+                    <FaUsers className="first:hidden last:block" />
                     <span>Community & County</span>
                   </TabsTrigger>
                 </TabsList>
