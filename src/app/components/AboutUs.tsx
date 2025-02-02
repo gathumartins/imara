@@ -24,11 +24,11 @@ function AboutUs() {
           </p>
         </div>
         <Image
-          className="inline-block flex-grow rounded border-1 mx-auto"
+          className="inline-block flex-grow rounded border-1 mx-auto lg:w-1/3"
           src="/images/aboutfeatured.webp"
           alt="About Imara Africa"
-          width={588}
-          height={476}
+          width={2256}
+          height={1808}
         />
       </section>
     </article>
