@@ -37,11 +37,11 @@ async function page() {
     <>
       <MiniBanner data={mini} />
       <article className="bg-[#EEF3FC] py-12">
-        <header className="container flex flex-row justify-between gap-5 mb-10">
+        <header className="container flex flex-col sm:flex-row justify-between gap-5 mb-10">
           <h3 className="font-avenirBlack text-3xl text-iBlue">
             Cohort One- 2019
           </h3>
-          <form action="">
+          <form action="" className='max-sm:w-full '>
             <div>
               <label htmlFor="search" className="sr-only">
                 Search Form
@@ -51,7 +51,7 @@ async function page() {
                 name="search"
                 id="search"
                 placeholder="Search Alumni"
-                className="rounded shadow-md px-4 py-2 focus:outline-none border-1 focus:border-iBlue placeholder:text-black placeholder:text-sm font-avenirRoman placeholder:font-avenirRoman bg-white"
+                className="rounded shadow-md px-4 py-2 focus:outline-none border-1 focus:border-iBlue placeholder:text-black placeholder:text-sm font-avenirRoman placeholder:font-avenirRoman bg-white w-full"
               />
             </div>
           </form>

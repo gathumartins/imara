@@ -17,7 +17,7 @@ function Team() {
           width={292}
           height={193}
           alt="Imara Team Leader"
-          className="object-cover"
+          className="max-sm:h-full object-cover "
         />
       </CardHeader>
       <CardContent className="p-6 flex place-items-center">
@@ -26,7 +26,7 @@ function Team() {
             <h4>Full Names</h4>
             <h5>Designation</h5>
           </div>
-          <ul className="flex flex-row max-w-[300px] mx-auto mt-8 md:ml-0 gap-8 justify-between [&_li]:w-[24px] [&_li]:h-[24px] [&_li]:border-1 [&_li]:border-iSecondary [&_li]:rounded-md">
+          <ul className="flex flex-row max-w-[300px] mx-auto mt-3 sm:mt-8 md:ml-0 gap-8 justify-between [&_li]:w-[24px] [&_li]:h-[24px] [&_li]:border-1 [&_li]:border-iSecondary [&_li]:rounded-md">
             <li className="flex justify-center place-items-center p-3 bg-iSecondary text-white hover:bg-white hover:text-iSecondary">
               <Link target="_blank" href="https://www.facebook.com/imaraAfr">
                 <FaFacebookF />
