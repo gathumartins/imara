@@ -35,6 +35,14 @@ margin: 0px;
 * {
   scroll-behavior: smooth;
 }
+.offset {
+  scroll-margin-top: 150px;
+}
+@media only screen and (min-width: 768px) {
+  .offset {
+  scroll-margin-top: 250px;
+  }
+}
 @layer base {
 .container {
   @apply px-4 md:px-8;

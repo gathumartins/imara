@@ -1,9 +1,9 @@
 import MiniBanner from '@/app/components/MiniBanner'
 import React from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
 import { FaUsers, FaUser } from "react-icons/fa";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import ImpactNav from '@/app/components/ImpactNav';
 
 async function page() {
     const query = `
@@ -33,91 +33,14 @@ async function page() {
     const data = await result.json();
     const mini = data.data.page.pageBanners;
   return (
-    <>
+    <div className="relative">
       <MiniBanner data={mini} />
-      <article className="relative">
-        <section className="bg-white py-6 sticky top-[70px] left-0 w-full z-1 border-t-1">
-          <header className="container">
-            <nav className="w-full relative hidden md:block">
-              <div className="w-[90%] ml-[5%] h-[2px] bg-iBlue absolute top-1/2"></div>
-              <ul className="flex gap-5 justify-around">
-                <li>
-                  <Link
-                    href="#capacity"
-                    className="flex flex-col gap-3 items-center"
-                  >
-                    <Image
-                      src="/images/capacity.svg"
-                      alt="Imara Impact page capacity icon"
-                      width={110}
-                      height={110}
-                      className="h-14 w-14 inline-block"
-                    />
-                    <Image
-                      src="/images/timeline.svg"
-                      alt="Imara Impact page capacity icon"
-                      width={15}
-                      height={88}
-                      className="inline-block h-14"
-                    />
-                    <span className="max-w-[300px] text-iBlue font-avenirNextBold text-xl">
-                      Capacity Building
-                    </span>
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="#partnership"
-                    className="flex flex-col gap-3 items-center"
-                  >
-                    <Image
-                      src="/images/partnership.svg"
-                      alt="Imara Impact page capacity icon"
-                      width={110}
-                      height={110}
-                      className="h-14 w-14 inline-block"
-                    />
-                    <Image
-                      src="/images/timeline.svg"
-                      alt="Imara Impact page capacity icon"
-                      width={15}
-                      height={88}
-                      className="inline-block h-14"
-                    />
-                    <span className="max-w-[300px] text-iBlue font-avenirNextBold text-xl">
-                      Partnerships
-                    </span>
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="#policy"
-                    className="flex flex-col items-center gap-3"
-                  >
-                    <Image
-                      src="/images/policy.svg"
-                      alt="Imara Impact page capacity icon"
-                      width={110}
-                      height={110}
-                      className="h-14 w-14 inline-block"
-                    />
-                    <Image
-                      src="/images/timeline.svg"
-                      alt="Imara Impact page capacity icon"
-                      width={15}
-                      height={88}
-                      className="inline-block h-14"
-                    />
-                    <span className="max-w-[300px] text-iBlue font-avenirNextBold text-xl">
-                      Developing Policy <br /> Recommendations
-                    </span>
-                  </Link>
-                </li>
-              </ul>
-            </nav>
-          </header>
-        </section>
-        <section className="bg-[#EEF3FC] py-12 md:py-20" id="capacity">
+      <section className="bg-white py-6 sticky top-[70px] left-0 w-full z-10 border-t-1 border-b-1 border-b-[#EEF3FC]">
+        <ImpactNav />
+      </section>
+      <article className="relative h-full overflow-y-auto">
+        <section id="capacity" className="offset"></section>
+        <section className="bg-[#EEF3FC] py-12 md:py-20">
           <header className="container mb-8">
             <ol className="list-decimal list-inside font-avenirNextBold text-iBlue text-3xl mb-5">
               <li>Capacity Building</li>
@@ -194,7 +117,7 @@ async function page() {
           </footer>
         </section>
 
-        <section className="bg-white py-12 md:py-20" id="partnership">
+        <section className="bg-white py-12 md:py-20 offset" id="partnership">
           <header className="container mb-8">
             <ol
               className="list-decimal list-inside font-avenirNextBold text-iBlue text-3xl mb-5"
@@ -233,7 +156,7 @@ async function page() {
           </footer>
         </section>
 
-        <section className="bg-[#EEF3FC] py-12 md:py-20" id="policy">
+        <section className="bg-[#EEF3FC] py-12 md:py-20 offset" id="policy">
           <header className="container mb-8">
             <ol
               className="list-decimal list-inside font-avenirNextBold text-iBlue text-3xl mb-5"
@@ -277,7 +200,7 @@ async function page() {
           </footer>
         </section>
       </article>
-    </>
+    </div>
   );
 }
 
