@@ -29,6 +29,7 @@ async function page() {
     );
     const data = await result.json();
     const mini = data.data.page.pageBanners;
+    console.log(data.data.page.pageBanners);
   return (
     <>
       <MiniBanner data={mini} />

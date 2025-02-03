@@ -113,7 +113,7 @@ page: page(id: "cG9zdDoxOA==") {
                       value={cat.list.shortname}
                       className="text-xl w-full sm:w-auto mb-0 font-avenirNextBold text-white max-sm:bg-iBlue data-[state=active]:bg-iSecondary sm:data-[state=active]:bg-transparent data-[state=active]:border-b-iBlue sm:border-b-transparent flex-grow sm:border-b-4 sm:rounded-none data-[state=active]:text-white sm:data-[state=active]:text-iBlue max-sm:py-2 sm:text-iNeutral flex items-center justify-center gap-3 " key={index}
                     >
-                      <FaUser className="first:block last:hidden" />
+                      <FaUser className="first:visible last:invisible" />
                       <FaUsers className="first:hidden last:block" />
                       <span>{cat.list.title}</span>
                     </TabsTrigger>
