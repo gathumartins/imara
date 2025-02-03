@@ -24,6 +24,58 @@ async function page() {
       }
     }
   }
+   partners:partners {
+    edges {
+      node {
+        title
+        featuredImage {
+          node {
+            altText
+            mediaDetails {
+              width
+              height
+            }
+            sourceUrl
+          }
+        }
+      }
+    }
+  }
+  tests:testimonials {
+    edges {
+      node {
+        title
+        content
+        testimonialFields {
+          cohort
+        }
+      }
+    }
+  }
+  programs:programs {
+    edges {
+      node {
+        title
+        slug
+        content
+        excerpt
+        uri
+        programfields {
+          icon {
+            node {
+              altText
+              mediaDetails {
+                width
+                height
+              }
+              sourceUrl
+            }
+          }
+        }
+      }
+    }
+  }
+
 }
   `;
 
@@ -33,15 +85,16 @@ async function page() {
     );
     const data = await result.json();
     const mini = data.data.page.pageBanners;
+    const homePrograms = data.data.programs.edges;
   return (
     <>
-    <MiniBanner data={mini}/>
-    <ProgramTop/>
-    <Program/>
-    <Testimonials/>
-    <Partners/>
+      <MiniBanner data={mini} />
+      <ProgramTop />
+      <Program programs={homePrograms} />
+      <Partners partners={data.data.partners.edges} />
+      <Testimonials tests={data.data.tests.edges} />
     </>
-  )
+  );
 }
 
 export default page
