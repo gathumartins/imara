@@ -11,7 +11,7 @@ const Map = dynamic(() => import("@/app/components/Map"), {
 async function page() {
    const query = `
   {
-  page:page(id: "cG9zdDoyNA==") {
+  page: page(id: "cG9zdDoyNA==") {
     id
     title
     uri
@@ -35,6 +35,12 @@ async function page() {
         height
         zoom
       }
+      faq {
+        qandas {
+          question
+          answer
+        }
+      }
     }
   }
 }
@@ -45,7 +51,7 @@ async function page() {
      { headers: { "Content-Type": "application/json" } }
    );
    const data = await result.json();
-   const mini = data.data.page.pageBanners; 
+   const mini = data.data.page.pageBanners;
    const location = data.data.page.contactUs.mapLocation;
   return (
     <>
@@ -59,7 +65,7 @@ async function page() {
         </section>
       </article>
       <Map location={location}/>
-      <FAQ/>
+      <FAQ faqs={data.data.page.contactUs.faq}/>
       <ContactForm/>
     </>
   );

@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 function Register({lay}:any) {
-  console.log(lay.register.registerImage);
   return (
     <section className="bg-white">
       <div className="container py-12 flex flex-col-reverse md:flex-row justify-between gap-10 place-items-center">

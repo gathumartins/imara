@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/accordion";
 
 
-function FAQ() {
+function FAQ({faqs}:any) {
   return (
     <article className="bg-white">
       <section className="container py-12">
@@ -17,25 +17,24 @@ function FAQ() {
           </h3>
         </header>
         <Accordion type="single" collapsible>
-          <AccordionItem
-            value="item-1"
-            className="shadow-md px-4 py-1 rounded border-1 border-[#EEF3FC] mb-4 bg-[#EEF3FC]"
-          >
-            <AccordionTrigger>Is it accessible?</AccordionTrigger>
-            <AccordionContent>
-              Yes. It adheres to the WAI-ARIA design pattern.
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem
-            value="item-2"
-            className="shadow-md px-4 py-1 rounded border-1 border-[#EEF3FC] mb-4 bg-[#EEF3FC]"
-          >
-            <AccordionTrigger>Is it accessible?</AccordionTrigger>
-            <AccordionContent>
-              Yes. It adheres to the WAI-ARIA design pattern.
-            </AccordionContent>
-          </AccordionItem>
+          {faqs.map((faq: any, index: number) => (
+            <div className="" key={index}>
+              <AccordionItem
+                value={`item-${index}`}
+                className="shadow-md px-4 py-1 rounded border-1 border-[#EEF3FC] mb-4 bg-[#EEF3FC]"
+              >
+                <AccordionTrigger className="myPro font-avenirNextBold text-iBlue">
+                  {faq.qandas.question}
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div
+                    className="myPro"
+                    dangerouslySetInnerHTML={{ __html: faq.qandas.answer }}
+                  ></div>
+                </AccordionContent>
+              </AccordionItem>
+            </div>
+          ))}
         </Accordion>
       </section>
     </article>
