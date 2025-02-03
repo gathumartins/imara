@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link';
 import Image from 'next/image';
 
-function Program() {
+function Program({programs}:any) {
   return (
     <div className="bg-[#B39B47]">
       <article
@@ -18,98 +18,37 @@ function Program() {
             excepturi .
           </p>
           <nav className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            <Link
-              href="/programs/program/residential"
-              className="min-h-[180px] bg-white rounded p-4 md:p-8 flex flex-row justify-start gap-4 shadow-md hover:shadow-iNeutral"
-            >
-              <figure className="w-28 h-28">
-                <Image
-                  src="/images/proicon.svg"
-                  alt="Imara Program Icon"
-                  width={60}
-                  height={60}
-                />
-              </figure>
-              <div>
-                <h4 className="text-xl font-avenirBlack text-iNeutral mb-[15px]">
-                  Lorem ipsum dolor sit amet.
-                </h4>
-                <p className="text-base font-avenirRoman text-iNeutral lg:max-w-[90%]">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet
-                  odio quo, sunt sapiente eos laudantium mollitia ad rem quas
-                  laborum?
-                </p>
-              </div>
-            </Link>
-            <Link
-              href="/programs/program/residential"
-              className="min-h-[180px] bg-white rounded p-4 md:p-8 flex flex-row justify-start gap-4 shadow-md hover:shadow-iNeutral"
-            >
-              <figure className="w-28 h-28">
-                <Image
-                  src="/images/proicon.svg"
-                  alt="Imara Program Icon"
-                  width={60}
-                  height={60}
-                />
-              </figure>
-              <div>
-                <h4 className="text-xl font-avenirBlack text-iNeutral mb-[15px]">
-                  Lorem ipsum dolor sit amet.
-                </h4>
-                <p className="text-base font-avenirRoman text-iNeutral lg:max-w-[90%]">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet
-                  odio quo, sunt sapiente eos laudantium mollitia ad rem quas
-                  laborum?
-                </p>
-              </div>
-            </Link>
-            <Link
-              href="/programs/program/residential"
-              className="min-h-[180px] bg-white rounded p-4 md:p-8 flex flex-row justify-start gap-4 shadow-md hover:shadow-iNeutral"
-            >
-              <figure className="w-28 h-28">
-                <Image
-                  src="/images/proicon.svg"
-                  alt="Imara Program Icon"
-                  width={60}
-                  height={60}
-                />
-              </figure>
-              <div>
-                <h4 className="text-xl font-avenirBlack text-iNeutral mb-[15px]">
-                  Lorem ipsum dolor sit amet.
-                </h4>
-                <p className="text-base font-avenirRoman text-iNeutral lg:max-w-[90%]">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet
-                  odio quo, sunt sapiente eos laudantium mollitia ad rem quas
-                  laborum?
-                </p>
-              </div>
-            </Link>
-            <Link
-              href="/programs/program/residential"
-              className="min-h-[180px] bg-white rounded p-4 md:p-8 flex flex-row justify-start gap-4 shadow-md hover:shadow-iNeutral"
-            >
-              <figure className="w-28 h-28">
-                <Image
-                  src="/images/proicon.svg"
-                  alt="Imara Program Icon"
-                  width={60}
-                  height={60}
-                />
-              </figure>
-              <div>
-                <h4 className="text-xl font-avenirBlack text-iNeutral mb-[15px]">
-                  Lorem ipsum dolor sit amet.
-                </h4>
-                <p className="text-base font-avenirRoman text-iNeutral lg:max-w-[90%]">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet
-                  odio quo, sunt sapiente eos laudantium mollitia ad rem quas
-                  laborum?
-                </p>
-              </div>
-            </Link>
+            {programs.map((program: any, i: number) => (
+              <Link
+                href={`/programs/program/${program.node.slug}`}
+                className="min-h-[180px] bg-white rounded p-4 md:p-8 flex flex-row justify-start gap-4 shadow-md hover:shadow-iNeutral"
+                key={i}
+              >
+                <figure className="w-28 h-28">
+                  {program.node.programfields.icon !== null && (
+                    <Image
+                      src={program.node.programfields.icon.node.sourceUrl}
+                      alt={`Imara Africa Fellowship ${program.node.title} Icon`}
+                      width={
+                        program.node.programfields.icon.node.mediaDetails.width
+                      }
+                      height={
+                        program.node.programfields.icon.node.mediaDetails.height
+                      }
+                    />
+                  )}
+                </figure>
+                <div>
+                  <h4 className="text-xl font-avenirBlack text-iNeutral mb-[15px]">
+                    {program.node.title}
+                  </h4>
+                  <div
+                    className="text-base font-avenirRoman text-iNeutral lg:max-w-[90%] line-clamp-3"
+                    dangerouslySetInnerHTML={{ __html: program.node.excerpt }}
+                  ></div>
+                </div>
+              </Link>
+            ))}
           </nav>
         </section>
       </article>

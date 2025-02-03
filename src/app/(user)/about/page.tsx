@@ -8,7 +8,7 @@ import React from 'react'
 async function page() {
     const query = `
   {
-  page:page(id: "cG9zdDoxMg==") {
+  page: page(id: "cG9zdDoxMg==") {
     id
     title
     uri
@@ -22,6 +22,81 @@ async function page() {
         }
       }
     }
+    content
+    featuredImage {
+      node {
+        altText
+        mediaDetails {
+          height
+          width
+        }
+        sourceUrl
+      }
+    }
+    aboutfields {
+      coreStatements {
+        defaultvalue
+        statements {
+          title
+          content
+          shortname
+          icon {
+            node {
+              altText
+              mediaDetails {
+                width
+                height
+              }
+              sourceUrl
+            }
+          }
+        }
+      }
+    }
+  }
+  programs:programs {
+    edges {
+      node {
+        title
+        slug
+        content
+        excerpt
+        uri
+        programfields {
+          icon {
+            node {
+              altText
+              mediaDetails {
+                width
+                height
+              }
+              sourceUrl
+            }
+          }
+        }
+      }
+    }
+  }
+  teams:teams {
+    edges {
+      node {
+        title
+        content
+        featuredImage {
+          node {
+            altText
+            mediaDetails {
+              height
+              width
+            }
+            sourceUrl
+          }
+        }
+        teamfields {
+          designation
+        }
+      }
+    }
   }
 }
   `;
@@ -31,15 +106,20 @@ async function page() {
   );
   const data = await result.json();
   const mini = data.data.page.pageBanners;
+   const homePrograms = data.data.programs.edges;
+  //  console.log(data.data.teams.edges);
   return (
     <>
-    <MiniBanner data={mini}/>
-    <AboutUs/>
-    <AboutCore/>
-    <Program/>
-    <AboutTeam/>  
+      <MiniBanner data={mini} />
+      <AboutUs
+        content={data.data.page.content}
+        img={data.data.page.featuredImage}
+      />
+      <AboutCore core={data.data.page.aboutfields.coreStatements} />
+      <Program programs={homePrograms} />
+      <AboutTeam teams={data.data.teams.edges} />
     </>
-  )
+  );
 }
 
 export default page
