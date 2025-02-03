@@ -17,7 +17,7 @@ function MyPagination({ items, ipp, comp, cTitle}: any) {
     <>
       <section className="container grid grid-cols-1 sm:grid-cols-2 gap-8 lg:grid-cols-3">
         {comp == "report" &&
-          currentItems.map((item: any, i: number) => <Report key={i} />)}
+          currentItems.map((item: any) => <Report key={item.node.id} report={item}/>)}
         {comp == "fellow" &&
           currentItems.map((item: any, index: number) => <Fellow key={index} fellow={item} designation={cTitle}/>)}
         {comp == "blog" && currentItems.map((item: any, i: number) => <PostCard key={i} />)}

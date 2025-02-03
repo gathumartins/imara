@@ -21,6 +21,21 @@ async function page() {
       }
     }
   }
+  reports:reports {
+    edges {
+      node {
+        title
+        id
+        reportfields {
+          report {
+            node {
+              mediaItemUrl
+            }
+          }
+        }
+      }
+    }
+  }
 }
   `;
     const result = await fetch(
@@ -29,9 +44,10 @@ async function page() {
     );
     const data = await result.json();
     const mini = data.data.page.pageBanners;
-    let reports = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+    let reports = data.data.reports.edges;
     const itemsPerPage = 6;
     const comp = "report"
+    // console.log(data.data.reports.edges)
   return (
     <>
       <MiniBanner data={mini} />
