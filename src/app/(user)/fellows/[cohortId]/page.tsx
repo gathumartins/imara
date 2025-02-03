@@ -5,9 +5,9 @@ import MyPagination from '@/app/components/MyPagination';
 
 async function page({params}:any) {
   const slug = params.cohortId;
-    const query = `
+  const query = `
     query NewQuery($slug:ID!){
-    cohort(id: $slug, idType: SLUG) {
+      cohort(id: $slug, idType: SLUG) {
     id
     slug
     name
@@ -28,28 +28,38 @@ async function page({params}:any) {
         }
       }
     }
+    fellowCohort {
+      pageBanners {
+        bannerImage {
+          node {
+            mediaItemUrl
+          }
+        }
+        pageTitle
+      }
+    }
   }
 }
 `;
   const variables = {
     slug,
   };
-   const res = await fetch(`${process.env.WORDPRESS_API_URL}`, {
-     method: "POST",
-     headers: { "Content-Type": "application/json" },
-     next: { revalidate: 60 },
-     body: JSON.stringify({ query, variables }),
-   });
-   const data = await res.json();
-    // const mini = data.data.page.pageBanners;
-    const itemsPerPage = 12;
-    const fellows = data.data.cohort.fellows.edges;
-    const comp = "fellow";
+  const res = await fetch(`${process.env.WORDPRESS_API_URL}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    next: { revalidate: 60 },
+    body: JSON.stringify({ query, variables }),
+  });
+  const data = await res.json();
+  const mini = data.data.cohort.fellowCohort.pageBanners;
+  const itemsPerPage = 12;
+  const fellows = data.data.cohort.fellows.edges;
+  const comp = "fellow";
 
-  console.log(data.data.cohort.name);
+  // console.log(data.data.cohort.fellowCohort.pageBanners);
   return (
     <>
-      {/* <MiniBanner data={mini} /> */}
+      <MiniBanner data={mini} />
       <article className="bg-[#EEF3FC] py-12">
         <header className="container flex flex-col sm:flex-row justify-between gap-5 mb-10">
           <h3 className="font-avenirBlack text-3xl text-iBlue">

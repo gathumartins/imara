@@ -2,7 +2,6 @@ import React from 'react'
 import Link from 'next/link';
 
 function MiniBanner({data}:any) {
-  // console.log(data)
   let bg =""
   if (data.bannerImage !== null) {
     bg = data.bannerImage.node.mediaItemUrl;
@@ -19,7 +18,7 @@ function MiniBanner({data}:any) {
           <div className="container py-12 ">
             <ul className="flex justify-start gap-2 mb-3 text-iSecondary font-avenirRoman text-base md:text-lg">
               <li>
-                <Link href="/home" className="text-white hover:text-iSecondary">
+                <Link href="/" className="text-white hover:text-iSecondary">
                   Home
                 </Link>
               </li>
