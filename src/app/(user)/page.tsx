@@ -119,7 +119,6 @@ page:page(id: "cG9zdDoxMA==") {
   const homeStats = data.data.page.homehero.homestats
   const homeAbout = data.data.page.homehero.homeabout
   const homePrograms = data.data.programs.edges;
-  //  console.log(data.data.tests.edges);
   return (
     <>
       <HomeHero hero={heroData} />

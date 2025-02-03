@@ -3,45 +3,59 @@ import React from 'react'
 import Fellow from '@/app/components/Fellow';
 import MyPagination from '@/app/components/MyPagination';
 
-async function page() {
+async function page({params}:any) {
+  const slug = params.cohortId;
     const query = `
-  {
-  page:page(id: "cG9zdDoxNg==") {
+    query NewQuery($slug:ID!){
+    cohort(id: $slug, idType: SLUG) {
     id
-    title
-    uri
     slug
-    link
-    pageBanners {
-      pageTitle
-      bannerImage {
+    name
+    fellows {
+      edges {
         node {
-          mediaItemUrl
+          title
+          featuredImage {
+            node {
+              altText
+              mediaDetails {
+                height
+                width
+              }
+              sourceUrl
+            }
+          }
         }
       }
     }
   }
 }
-  `;
-
-    const result = await fetch(
-      `${process.env.WORDPRESS_API_URL}?query=${encodeURIComponent(query)}`,
-      { headers: { "Content-Type": "application/json" } }
-    );
-    const data = await result.json();
-    const mini = data.data.page.pageBanners;
+`;
+  const variables = {
+    slug,
+  };
+   const res = await fetch(`${process.env.WORDPRESS_API_URL}`, {
+     method: "POST",
+     headers: { "Content-Type": "application/json" },
+     next: { revalidate: 60 },
+     body: JSON.stringify({ query, variables }),
+   });
+   const data = await res.json();
+    // const mini = data.data.page.pageBanners;
     const itemsPerPage = 12;
-    const fellows = [1,2,3,4,5,6,7,8,9,10,11,12,13,14]
+    const fellows = data.data.cohort.fellows.edges;
     const comp = "fellow";
+
+  console.log(data.data.cohort.name);
   return (
     <>
-      <MiniBanner data={mini} />
+      {/* <MiniBanner data={mini} /> */}
       <article className="bg-[#EEF3FC] py-12">
         <header className="container flex flex-col sm:flex-row justify-between gap-5 mb-10">
           <h3 className="font-avenirBlack text-3xl text-iBlue">
-            Cohort One- 2019
+            {data.data.cohort.name}
           </h3>
-          <form action="" className='max-sm:w-full '>
+          <form action="" className="max-sm:w-full ">
             <div>
               <label htmlFor="search" className="sr-only">
                 Search Form
@@ -56,7 +70,7 @@ async function page() {
             </div>
           </form>
         </header>
-        <MyPagination items={fellows} ipp={itemsPerPage} comp={comp}/>
+        <MyPagination items={fellows} ipp={itemsPerPage} comp={comp} />
       </article>
     </>
   );
