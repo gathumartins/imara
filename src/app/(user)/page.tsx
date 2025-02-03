@@ -55,6 +55,34 @@ page:page(id: "cG9zdDoxMA==") {
       }
     }
   }
+  partners:partners {
+    edges {
+      node {
+        title
+        featuredImage {
+          node {
+            altText
+            mediaDetails {
+              width
+              height
+            }
+            sourceUrl
+          }
+        }
+      }
+    }
+  }
+  tests:testimonials {
+    edges {
+      node {
+        title
+        content
+        testimonialFields {
+          cohort
+        }
+      }
+    }
+  }
   programs:programs {
     edges {
       node {
@@ -78,6 +106,7 @@ page:page(id: "cG9zdDoxMA==") {
       }
     }
   }
+
 }
 `;
   const result = await fetch(
@@ -90,17 +119,17 @@ page:page(id: "cG9zdDoxMA==") {
   const homeStats = data.data.page.homehero.homestats
   const homeAbout = data.data.page.homehero.homeabout
   const homePrograms = data.data.programs.edges;
-  //  console.log(data.data.programs.edges);
+  //  console.log(data.data.tests.edges);
   return (
     <>
-    <HomeHero hero={heroData}/>
-    <Stats stats={homeStats}/>
-    <HomeAbout about={homeAbout}/>
-    <Program programs={homePrograms}/>
-    <Partners/>
-    <Testimonials/>
+      <HomeHero hero={heroData} />
+      <Stats stats={homeStats} />
+      <HomeAbout about={homeAbout} />
+      <Program programs={homePrograms} />
+      <Partners partners={data.data.partners.edges} />
+      <Testimonials tests={data.data.tests.edges} />
     </>
-  )
+  );
 }
 
 export default page

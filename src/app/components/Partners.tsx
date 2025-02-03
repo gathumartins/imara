@@ -7,14 +7,15 @@ const PartnerCarousel = dynamic(
   { ssr: false }
 );
 
-function Partners() {
+function  Partners({partners}:any) {
+  // console.log(partners)
   return (
     <article className="bg-white">
       <section className="container py-12">
         <h3 className="font-avenirNextBold text-iBlue text-3xl text-center mb-[30px]">
           Our Partners
         </h3>
-       <PartnerCarousel/>
+       <PartnerCarousel parts={partners}/>
       </section>
     </article>
   );
