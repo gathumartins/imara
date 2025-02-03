@@ -15,6 +15,17 @@ async function page() {
     uri
     slug
     link
+    content
+    featuredImage {
+      node {
+        altText
+        mediaDetails {
+          height
+          width
+        }
+        sourceUrl
+      }
+    }
     pageBanners {
       pageTitle
       bannerImage {
@@ -89,7 +100,10 @@ async function page() {
   return (
     <>
       <MiniBanner data={mini} />
-      <ProgramTop />
+      <ProgramTop
+        cont={data.data.page.content}
+        feat={data.data.page.featuredImage}
+      />
       <Program programs={homePrograms} />
       <Partners partners={data.data.partners.edges} />
       <Testimonials tests={data.data.tests.edges} />
