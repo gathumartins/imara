@@ -5,7 +5,7 @@ import Report from "@/app/components/Report";
 import Fellow from "./Fellow";
 import PostCard from "./PostCard";
 
-function MyPagination({ items, ipp, comp}: any) {
+function MyPagination({ items, ipp, comp, cTitle}: any) {
     const itemsPerPage = ipp;
     const totalPages = Math.ceil(items.length / itemsPerPage);
     const [currentPage, setCurrentPage] = useState(1);
@@ -19,7 +19,7 @@ function MyPagination({ items, ipp, comp}: any) {
         {comp == "report" &&
           currentItems.map((item: any, i: number) => <Report key={i} />)}
         {comp == "fellow" &&
-          currentItems.map((item: any, i: number) => <Fellow key={i} />)}
+          currentItems.map((item: any, index: number) => <Fellow key={index} fellow={item} designation={cTitle}/>)}
         {comp == "blog" && currentItems.map((item: any, i: number) => <PostCard key={i} />)}
       </section>
       {items.length > 6 && (

@@ -6,7 +6,6 @@ function MiniBanner({data}:any) {
   if (data.bannerImage !== null) {
     bg = data.bannerImage.node.mediaItemUrl;
   }
-  // console.log(data.bannerImage);
     return (
       <article
         className="bg-no-repeat bg-center"

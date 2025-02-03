@@ -56,7 +56,7 @@ async function page({params}:any) {
   const fellows = data.data.cohort.fellows.edges;
   const comp = "fellow";
 
-  // console.log(data.data.cohort.fellowCohort.pageBanners);
+  console.log(data.data.cohort.name);
   return (
     <>
       <MiniBanner data={mini} />
@@ -80,7 +80,12 @@ async function page({params}:any) {
             </div>
           </form>
         </header>
-        <MyPagination items={fellows} ipp={itemsPerPage} comp={comp} />
+        <MyPagination
+          items={fellows}
+          ipp={itemsPerPage}
+          comp={comp}
+          cTitle={data.data.cohort.name}
+        />
       </article>
     </>
   );
