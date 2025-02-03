@@ -14,7 +14,7 @@ function CohortCard({data}:any) {
   return (
     <Card className="rounded bg-white">
       <CardHeader className="bg-iSecondary rounded-t p-8 flex justify-center place-items-center">
-        <div className="w-[180px] h-[136px]">
+        <div className="w-[180px] h-[136px] relative">
           {data.node.fellowCohort.cohortImage !== null && (
             <Image
               src={data.node.fellowCohort.cohortImage.node.mediaItemUrl}
