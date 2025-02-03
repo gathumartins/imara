@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link';
 
 function MiniBanner({data}:any) {
-  let bg =""
+  let bg ="/images/fellowmini.webp"
   if (data.bannerImage !== null) {
     bg = data.bannerImage.node.mediaItemUrl;
   }

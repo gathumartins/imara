@@ -10,18 +10,20 @@ import Link from 'next/link';
 import { IoMdArrowRoundForward } from "react-icons/io";
 
 function CohortCard({data}:any) {
- 
+
   return (
     <Card className="rounded bg-white">
       <CardHeader className="bg-iSecondary rounded-t p-8 flex justify-center place-items-center">
-        {data.node.fellowCohort.cohortImage !== null && (
-          <Image
-            src={data.node.fellowCohort.cohortImage.node.mediaItemUrl}
-            alt="Imara Cohort Image"
-            width={data.node.fellowCohort.cohortImage.node.mediaDetails.width}
-            height={data.node.fellowCohort.cohortImage.node.mediaDetails.height}
-          />
-        )}
+        <div className="w-[180px] h-[136px]">
+          {data.node.fellowCohort.cohortImage !== null && (
+            <Image
+              src={data.node.fellowCohort.cohortImage.node.mediaItemUrl}
+              alt="Imara Cohort Image"
+              fill={true}
+              objectFit='cover'
+            />
+          )}
+        </div>
       </CardHeader>
       <CardContent className="pt-5 [&_p]:text-iNeutral [&_p]:text-base [&_p]:font-avenirRoman [&_h4]:text-iBlue [&_h4]:font-avenirBook [&_h4]:text-lg [&_h4]:mb-3">
         <h4>{data.node.name}</h4>
