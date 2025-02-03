@@ -18,7 +18,7 @@ function Program({programs}:any) {
             excepturi .
           </p>
           <nav className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {programs.map((program: any, i: number) => (
+            {programs.reverse().map((program: any, i: number) => (
               <Link
                 href={`/programs/program/${program.node.slug}`}
                 className="min-h-[180px] bg-white rounded p-4 md:p-8 flex flex-row justify-start gap-4 shadow-md hover:shadow-iNeutral"
