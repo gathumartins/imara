@@ -106,8 +106,7 @@ async function page() {
   );
   const data = await result.json();
   const mini = data.data.page.pageBanners;
-   const homePrograms = data.data.programs.edges;
-  //  console.log(data.data.teams.edges);
+  const homePrograms = data.data.programs.edges;
   return (
     <>
       <MiniBanner data={mini} />
