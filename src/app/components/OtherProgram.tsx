@@ -12,30 +12,34 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
 
-function OtherProgram() {
+function OtherProgram({pro}:any) {
   return (
-    <Card className="shadow-md bg-white max-w-[350px]">
+    <Card className="shadow-md bg-white max-w-[350px] flex flex-col justify-between">
       <CardHeader>
-        <Image
-          src="/images/proicon.svg"
-          alt="Imara Fellowship report Icon"
-          width={60}
-          height={60}
-          className="inline-block mb-6"
-        />
-        <CardTitle>Online Learning</CardTitle>
-        <CardDescription className="sr-only">Card Description</CardDescription>
+        {pro.node.programfields.icon !== null && (
+          <Image
+            src={pro.node.programfields.icon.node.mediaItemUrl}
+            alt={`Imara Africa Fellowship ${pro.node.title} Icon`}
+            width={pro.node.programfields.icon.node.mediaDetails.width}
+            height={pro.node.programfields.icon.node.mediaDetails.height}
+            className="inline-block mb-6"
+          />
+        )}
+        <CardTitle className="text-iBlue font-avenirNextBold text-lg">
+          {pro.node.title}
+        </CardTitle>
+        <CardDescription
+          className="sr-only line-clamp-3 "
+          dangerouslySetInnerHTML={{ __html: pro.node.content }}
+        ></CardDescription>
       </CardHeader>
-      <CardContent className="pb-6 pt-4 myPro">
-        <p>
-          Participants are selected to sponsored to undertake a certificate
-          course related to policy & Governance with one of the globally
-          recognized Universities.
-        </p>
-      </CardContent>
+      <CardContent
+        className="pb-6 pt-4 myPro line-clamp-2 mb-3"
+        dangerouslySetInnerHTML={{ __html: pro.node.content }}
+      ></CardContent>
       <CardFooter>
         <Link
-          href="/programs/program/1"
+          href={`/programs/program/${pro.node.slug}`}
           className="text-white text-lg hover:bg-iSecondary text-center p-3 rounded-md font-avenirBook flex justify-center gap-1 items-center w-full bg-iBlue"
         >
           <span>Read More</span>

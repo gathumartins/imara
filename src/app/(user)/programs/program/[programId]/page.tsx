@@ -34,7 +34,28 @@ async function page({params}:any) {
       }
     }
   }
-
+  programs:programs {
+    edges {
+      node {
+        title
+        id
+        content
+        slug
+        programfields {
+          icon {
+            node {
+              altText
+              mediaDetails {
+                width
+                height
+              }
+              mediaItemUrl
+            }
+          }
+        }
+      }
+    }
+  }
 }`;
 
   const variables = {
@@ -48,8 +69,9 @@ async function page({params}:any) {
   });
   const data = await res.json();
   const mini = data.data.program.pageBanners;
-
-  // console.log(data.data.program.featuredImage.node);
+  const pId = data.data.program.id;
+  const otherPrograms = data.data.programs.edges.filter(
+    (program:any) => program.node.id !== pId);
   return (
     <>
       <MiniBanner data={mini} />
@@ -96,9 +118,9 @@ async function page({params}:any) {
           <footer className="container myPro">
             <h3>Other Programs</h3>
             <div className="flex flex-col justify-around md:flex-row gap-5">
-              <OtherProgram />
-              <OtherProgram />
-              <OtherProgram />
+              {otherPrograms.map((program: any) => (
+                <OtherProgram key={program.node.id} pro={program}/>
+              ))}
             </div>
           </footer>
         </section>
