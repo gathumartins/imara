@@ -21,13 +21,18 @@ function Slider({tests}:any) {
   return (
     <div className="max-w-[1280px] mx-auto mt-[20px]">
       <Carousel opts={{ align: "start", loop: true }}>
-        <CarouselContent className="-mr-60 md:-mr-40">
+        <CarouselContent className="-mr-60 md:-mr-40 flex items-stretch">
           {tests.map((test: any, index: number) => (
-            <CarouselItem className="basis-1/2 md:basis-1/3 lg:basis-1/4 pl-2 md:pl-4" key={index}>
-              <Card className="pt-[20px] bg-white">
+            <CarouselItem
+              className="basis-1/2 md:basis-1/3 lg:basis-1/4 pl-2 md:pl-4"
+              key={index}
+            >
+              <Card className="pt-[20px] bg-white flex flex-col justify-between h-full">
                 <CardContent>
-                  <div className="text-base font-avenirRoman text-iNeutral" dangerouslySetInnerHTML={{__html:test.node.content}}>
-                  </div>
+                  <div
+                    className="text-base font-avenirRoman text-iNeutral flex-grow"
+                    dangerouslySetInnerHTML={{ __html: test.node.content }}
+                  ></div>
                 </CardContent>
                 <CardFooter className="flex flex-row gap-5">
                   <Avatar>
