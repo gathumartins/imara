@@ -101,7 +101,7 @@ async function page() {
             </h3>
           </header>
         </section>
-        <MyPagination items={otherPosts} ipp={itemsPerPage} comp={comp} />
+        <MyPagination items={otherPosts} ipp={itemsPerPage} comp={comp}/>
       </article>
     </>
   );

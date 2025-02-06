@@ -7,7 +7,7 @@ async function page({params}:any) {
   const slug = params.cohortId;
   const query = `
     query NewQuery($slug:ID!){
-      cohort(id: $slug, idType: SLUG) {
+    cohort(id: $slug, idType: SLUG) {
     id
     slug
     name
