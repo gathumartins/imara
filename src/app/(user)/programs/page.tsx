@@ -86,7 +86,20 @@ async function page() {
       }
     }
   }
-
+  titles:layout(id: "cG9zdDo5OQ==", idType: ID) {
+    programstitle {
+      header {
+        title
+        subtitle
+      }
+    }
+    testimonialtitles {
+      header {
+        title
+        subtitle
+      }
+    }
+  }
 }
   `;
 
@@ -104,9 +117,15 @@ async function page() {
         cont={data.data.page.content}
         feat={data.data.page.featuredImage}
       />
-      <Program programs={homePrograms} />
+      <Program
+        programs={homePrograms}
+        titles={data.data.titles.programstitle}
+      />
       <Partners partners={data.data.partners.edges} />
-      <Testimonials tests={data.data.tests.edges} />
+      <Testimonials
+        tests={data.data.tests.edges}
+        titles={data.data.titles.testimonialtitles}
+      />
     </>
   );
 }

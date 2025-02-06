@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link';
 import Image from 'next/image';
 
-function Program({programs}:any) {
+function Program({programs, titles}:any) {
   return (
     <div className="bg-[#B39B47]">
       <article
@@ -11,12 +11,11 @@ function Program({programs}:any) {
       >
         <section className="container  py-12">
           <h3 className="font-avenirNextBold text-white text-3xl text-center">
-            Program Components
+            {titles.header.title}
           </h3>
-          <p className="max-w-[400px] mx-auto text-center text-white font-avenirRoman text-base mb-[20px]">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
-            excepturi .
-          </p>
+          <div className="max-w-[400px] mx-auto text-center text-white font-avenirRoman text-base mb-[20px]" dangerouslySetInnerHTML={{__html: titles.header.subtitle}}>
+
+          </div>
           <nav className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {programs.reverse().map((program: any, i: number) => (
               <Link

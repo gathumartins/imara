@@ -106,7 +106,20 @@ page:page(id: "cG9zdDoxMA==") {
       }
     }
   }
-
+  titles:layout(id: "cG9zdDo5OQ==", idType: ID) {
+    programstitle {
+      header {
+        title
+        subtitle
+      }
+    }
+    testimonialtitles {
+      header {
+        title
+        subtitle
+      }
+    }
+  }
 }
 `;
   const result = await fetch(
@@ -124,9 +137,15 @@ page:page(id: "cG9zdDoxMA==") {
       <HomeHero hero={heroData} />
       <Stats stats={homeStats} />
       <HomeAbout about={homeAbout} />
-      <Program programs={homePrograms} />
+      <Program
+        programs={homePrograms}
+        titles={data.data.titles.programstitle}
+      />
       <Partners partners={data.data.partners.edges} />
-      <Testimonials tests={data.data.tests.edges} />
+      <Testimonials
+        tests={data.data.tests.edges}
+        titles={data.data.titles.testimonialtitles}
+      />
     </>
   );
 }

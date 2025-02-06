@@ -98,6 +98,20 @@ async function page() {
       }
     }
   }
+  titles:layout(id: "cG9zdDo5OQ==", idType: ID) {
+    programstitle {
+      header {
+        title
+        subtitle
+      }
+    }
+    testimonialtitles {
+      header {
+        title
+        subtitle
+      }
+    }
+  }
 }
   `;
 
@@ -107,6 +121,7 @@ async function page() {
   const data = await result.json();
   const mini = data.data.page.pageBanners;
   const homePrograms = data.data.programs.edges;
+
   return (
     <>
       <MiniBanner data={mini} />
@@ -115,7 +130,10 @@ async function page() {
         img={data.data.page.featuredImage}
       />
       <AboutCore core={data.data.page.aboutfields.coreStatements} />
-      <Program programs={homePrograms} />
+      <Program
+        programs={homePrograms}
+        titles={data.data.titles.programstitle}
+      />
       <AboutTeam teams={data.data.teams.edges} />
     </>
   );
