@@ -20,7 +20,7 @@ function MyPagination({ items, ipp, comp, cTitle}: any) {
           currentItems.map((item: any) => <Report key={item.node.id} report={item}/>)}
         {comp == "fellow" &&
           currentItems.map((item: any, index: number) => <Fellow key={index} fellow={item} designation={cTitle}/>)}
-        {comp == "blog" && currentItems.map((item: any, i: number) => <PostCard key={i} />)}
+        {comp == "blog" && currentItems.map((item: any) => <PostCard key={item.node.id} post={item}/>)}
       </section>
       {items.length > 6 && (
         <footer className="container mt-5 flex justify-end">

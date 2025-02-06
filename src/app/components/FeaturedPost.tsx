@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useMemo } from "react";
 import {
   Card,
   CardContent,
@@ -12,19 +12,31 @@ import { FaArrowRight } from "react-icons/fa";
 import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-function FeaturedPost() {
+
+function FeaturedPost({post}:any) {
+  const date = new Date(post.node.date);
+  const formattedDate = new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "2-digit",
+    year: "numeric",
+  }).format(date);
   return (
     <Card className="shadow-md bg-white p-0 lg:flex flex-row justify-stretch">
       <CardHeader className="p-0 mt-0 relative lg:w-1/2">
-        <Image
-          src="/images/post.png"
-          alt="Imara Fellowship report Icon"
-          width={354}
-          height={228}
-          className="w-full inline-block lg:rounded-l-lg lg:rounded-r-0 rounded-t-lg"
-        />
-        <CardTitle className="sr-only">Card Title</CardTitle>
-        <CardDescription className="sr-only">Card Description</CardDescription>
+        {post.node.featuredImage !== null && (
+          <Image
+            src={post.node.featuredImage.node.sourceUrl}
+            alt={`Imara Fellowship Africa ${post.node.title} image`}
+            width={post.node.featuredImage.node.mediaDetails.width}
+            height={post.node.featuredImage.node.mediaDetails.height}
+            className="w-full inline-block lg:rounded-l-lg lg:rounded-r-0 rounded-t-lg"
+          />
+        )}
+        <CardTitle className="sr-only">{post.node.title}</CardTitle>
+        <CardDescription
+          className="sr-only line-clamp-2"
+          dangerouslySetInnerHTML={{ __html: post.node.content }}
+        ></CardDescription>
       </CardHeader>
       <CardContent className="py-6 px-6 lg:px-12 pb-0 lg:w-1/2 lg:flex place-items-center">
         <section className="mb-8">
@@ -33,28 +45,28 @@ function FeaturedPost() {
               Featured
             </h5>
             <h5 className="text-iNeutral font-avenirRoman text-base">
-              Oct 24, 2024
+              {formattedDate}
             </h5>
           </header>
           <h4 className="my-4 text-iBlue text-xl font-avenirNextBold">
-            Lorem article heading will be placed here across.
+            {post.node.title}
           </h4>
-          <p className="text-iNeutral font-avenirRoman text-base">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam
-            dolore amet ad dolores quibusdam quia rem, quasi suscipit officia at
-            voluptatem velit laudantium ratione libero laborum doloremque
-            similique quos nulla?
-          </p>
+          <div
+            className="text-iNeutral font-avenirRoman text-base line-clamp-3"
+            dangerouslySetInnerHTML={{ __html: post.node.content }}
+          ></div>
           <footer className="mt-6 flex flex-row justify-between gap-5 items-center">
             <div className="flex flex-row gap-5 items-center">
               <Avatar>
-                <AvatarImage src="https://github.com/shadcn.png" />
-                <AvatarFallback>CN</AvatarFallback>
+                <AvatarImage src={post.node.author.node.avatar.url} />
+                <AvatarFallback>{post.node.author.node.name}</AvatarFallback>
               </Avatar>
-              <h5 className="font-avenirRoman text-sm text-iNeutral">Banks</h5>
+              <h5 className="font-avenirRoman text-sm text-iNeutral">
+                {post.node.author.node.name}
+              </h5>
             </div>
             <Link
-              href="/blog/1"
+              href={`/blog/${post.node.slug}`}
               className="text-iSecondary text-lg hover:text-iBlue font-avenirBook flex gap-2 items-center"
             >
               <span>Read More</span>

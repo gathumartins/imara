@@ -21,6 +21,43 @@ async function page() {
       }
     }
   }
+  posts:posts {
+    edges {
+      node {
+        id
+        title
+        content
+        date
+        slug
+        categories {
+          edges {
+            node {
+              id
+              name
+            }
+          }
+        }
+        author {
+          node {
+            name
+            avatar {
+              url
+            }
+          }
+        }
+        featuredImage {
+          node {
+            altText
+            mediaDetails {
+              width
+              height
+            }
+            sourceUrl
+          }
+        }
+      }
+    }
+  }
 }
   `;
 
@@ -31,8 +68,20 @@ async function page() {
     const data = await result.json();
     const mini = data.data.page.pageBanners;
     const itemsPerPage = 6;
-    const fellows = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+    const posts = data.data.posts.edges;
     const comp = "blog";
+    const categoryId = "dGVybToxMw==";
+    const post = posts
+      .filter((post: any) =>
+        post.node.categories.edges.some(
+          (category: any) => category.node.id === categoryId
+        )
+      )
+      .sort(
+        (a: any, b: any) =>
+          new Date(b.node.date).getTime() - new Date(a.node.date).getTime()
+      )[0];
+   const otherPosts = posts.filter((otherPost:any)=>otherPost.node.id !== post.node.id)
   return (
     <>
       <MiniBanner data={mini} />
@@ -43,7 +92,7 @@ async function page() {
               Featured Article
             </h3>
           </header>
-          <FeaturedPost />
+          <FeaturedPost post={post} />
         </section>
         <section className="container">
           <header className="mb-8 pb-3 border-b-1 border-iGray">
@@ -52,7 +101,7 @@ async function page() {
             </h3>
           </header>
         </section>
-        <MyPagination items={fellows} ipp={itemsPerPage} comp={comp} />
+        <MyPagination items={otherPosts} ipp={itemsPerPage} comp={comp} />
       </article>
     </>
   );
