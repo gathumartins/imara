@@ -48,7 +48,7 @@ async function page({params}:any) {
   });
   const data = await res.json();
   const mini = data.data.program.pageBanners;
-  console.log(data.data.program.programfields.overview);
+  // console.log(data.data.program.featuredImage.node);
   return (
     <>
       <MiniBanner data={mini} />
@@ -74,10 +74,14 @@ async function page({params}:any) {
             {data.data.program.featuredImage !== null && (
               <figure className="md:w-1/2">
                 <Image
-                  src="/images/pro.png"
-                  width={564}
-                  height={371}
-                  alt="Program Overview"
+                  src={data.data.program.featuredImage.node.sourceUrl}
+                  width={
+                    data.data.program.featuredImage.node.mediaDetails.width
+                  }
+                  height={
+                    data.data.program.featuredImage.node.mediaDetails.width
+                  }
+                  alt={`Imara Fellowship Africa Program ${data.data.program.featuredImage.node.altText}`}
                   className="w-full rounded-lg"
                 />
               </figure>
