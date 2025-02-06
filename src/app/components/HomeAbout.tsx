@@ -23,7 +23,7 @@ function HomeAbout({about}: any) {
               {about.title}
             </h3>
             <div
-              className="text-base font-avenirRoman text-white max-lg:line-clamp-3"
+              className="text-base font-avenirRoman text-white max-lg:line-clamp-3 lg:line-clamp-6"
               dangerouslySetInnerHTML={{ __html: about.excerpt }}
             ></div>
             {about.readmore.link !== null && (
