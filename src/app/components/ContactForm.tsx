@@ -28,7 +28,7 @@ function ContactForm() {
         };
         try {
           const req = await fetch(
-            `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/contact-form-7/v1/contact-forms/a76c04a/ContactForm`,
+            `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/contact-form-7/v1/contact-forms/394/feedback`,
             reqOptions
           );
           const response = await req.json();
@@ -135,7 +135,7 @@ function ContactForm() {
             </div>
             <div className="w-full md:w-1/2 lg:w-2/3">
               <form
-                action=""
+                onSubmit={handleSubmit}
                 className="grid grid-cols-1 lg:grid-cols-2 gap-x-5 gap-y-3"
               >
                 <div className="flex flex-col gap-1">
@@ -149,6 +149,8 @@ function ContactForm() {
                     type="text"
                     name="fullName"
                     id="fullName"
+                    value={fullName}
+                    onChange={(e) => setName(e.target.value)}
                     placeholder="Enter Full Name"
                     className="p-2 rounded border border-white shadow focus:outline-none focus:border-iBlue focus:ring-iBlue focus:right-1 placeholder:text-iNeutral placeholder:text-sm"
                     required
@@ -165,6 +167,8 @@ function ContactForm() {
                     type="email"
                     name="email"
                     id="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter Email Address"
                     className="p-2 rounded border border-white shadow focus:outline-none focus:border-iBlue focus:ring-iBlue focus:right-1 placeholder:text-iNeutral placeholder:text-sm"
                     required
@@ -181,6 +185,8 @@ function ContactForm() {
                     type="tel"
                     name="phone"
                     id="phone"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
                     placeholder="Enter Phone Number"
                     className="p-2 rounded border border-white shadow focus:outline-none focus:border-iBlue focus:ring-iBlue focus:right-1 placeholder:text-iNeutral placeholder:text-sm"
                     required
@@ -197,6 +203,8 @@ function ContactForm() {
                     type="text"
                     name="subject"
                     id="subject"
+                    value={subject}
+                    onChange={(e) => setSubject(e.target.value)}
                     placeholder="Enter Subject"
                     className="p-2 rounded border border-white shadow focus:outline-none focus:border-iBlue focus:ring-iBlue focus:right-1 placeholder:text-iNeutral placeholder:text-sm"
                     required
@@ -212,19 +220,22 @@ function ContactForm() {
                   <textarea
                     name="message"
                     id="message"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
                     rows={2}
                     placeholder="Enter Message"
                     className="p-2 rounded border border-white shadow focus:outline-none focus:border-iBlue focus:ring-iBlue focus:right-1 placeholder:text-iNeutral placeholder:text-sm"
                     required
                   ></textarea>
                 </div>
-                <button
+                <input
                   type="submit"
+                  value={submitting ? `Sending Message` : `Send Message`}
+                  disabled={submitting}
                   className="bg-iBlue hover:bg-iSecondary px-3 text-white w-[180px] mx-auto h-[45px] flex place-items-center justify-center text-center rounded text-lg font-avenirRoman ml-0 mt-3"
-                >
-                  Send Message
-                </button>
+                />
               </form>
+              {showSuccessMessage && <p className="text-growth">{resMess}</p>}
             </div>
           </div>
         </section>
