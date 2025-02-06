@@ -1,11 +1,59 @@
-import React from 'react'
+"use client";
+import React, { useState } from "react";
 import { FaRegEnvelope, FaPhone } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
-import Link from 'next/link';
-
-
+import Link from "next/link";
 
 function ContactForm() {
+    const [fullName, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
+    const [message, setMessage] = useState("");
+    const [submitting, setSubmitting] = useState(false);
+    const [subject, setSubject] = useState("");
+    const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const [resMess, setResMess] = useState("");
+
+    const handleSubjectChange = (event: any) => {
+      setSubject(event.target.value);
+    };
+      const handleSubmit = async (event: any) => {
+        event.preventDefault();
+        setSubmitting(true);
+        const formData = new FormData(event.target);
+        const reqOptions = {
+          method: "POST",
+          body: formData,
+        };
+        try {
+          const req = await fetch(
+            `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/contact-form-7/v1/contact-forms/a76c04a/ContactForm`,
+            reqOptions
+          );
+          const response = await req.json();
+          setResMess(response.message);
+          if (response.status === "mail_sent") {
+            setSuccess(true);
+            setShowSuccessMessage(true);
+            setTimeout(() => {
+              setShowSuccessMessage(false);
+              setName("");
+              setEmail("");
+              setPhone("");
+              setMessage("");
+              setSubject("");
+            }, 5000);
+          } else {
+            setSuccess(false);
+          }
+        } catch (error) {
+          console.error("Error submitting form:", error);
+          setSuccess(false);
+        } finally {
+          setSubmitting(false);
+        }
+      };
   return (
     <article
       className="py-12 bg-[#EEF3FC] bg-cover bg-no-repeat bg-right-top"
@@ -185,4 +233,4 @@ function ContactForm() {
   );
 }
 
-export default ContactForm
+export default ContactForm;
