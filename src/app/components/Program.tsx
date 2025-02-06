@@ -11,9 +11,9 @@ function Program({programs, titles}:any) {
       >
         <section className="container  py-12">
           <h3 className="font-avenirNextBold text-white text-3xl text-center">
-            {titles.header.title}
+            {titles.title}
           </h3>
-          <div className="max-w-[400px] mx-auto text-center text-white font-avenirRoman text-base mb-[20px]" dangerouslySetInnerHTML={{__html: titles.header.subtitle}}>
+          <div className="max-w-[400px] mx-auto text-center text-white font-avenirRoman text-base mb-[20px]" dangerouslySetInnerHTML={{__html: titles.subtitle}}>
 
           </div>
           <nav className="grid grid-cols-1 sm:grid-cols-2 gap-5">

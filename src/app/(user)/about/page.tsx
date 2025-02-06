@@ -98,17 +98,17 @@ async function page() {
       }
     }
   }
-  titles:layout(id: "cG9zdDo5OQ==", idType: ID) {
-    programstitle {
-      header {
-        title
-        subtitle
-      }
-    }
-    testimonialtitles {
-      header {
-        title
-        subtitle
+  headings:heading(id: "cG9zdDozODM=", idType: ID) {
+    siteheadings {
+      headings {
+        program {
+          title
+          subtitle
+        }
+        testimonials {
+          title
+          subtitle
+        }
       }
     }
   }
@@ -132,7 +132,7 @@ async function page() {
       <AboutCore core={data.data.page.aboutfields.coreStatements} />
       <Program
         programs={homePrograms}
-        titles={data.data.titles.programstitle}
+        titles={data.data.headings.siteheadings.headings.program}
       />
       <AboutTeam teams={data.data.teams.edges} />
     </>
