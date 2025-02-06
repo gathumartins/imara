@@ -24,7 +24,7 @@ function Program({programs}:any) {
                 className="min-h-[180px] bg-white rounded p-4 md:p-8 flex flex-row justify-start gap-4 shadow-md hover:shadow-iNeutral"
                 key={i}
               >
-                <figure className="w-28 h-28">
+                <figure className="w-[150px] h-[150px] inline-block">
                   {program.node.programfields.icon !== null && (
                     <Image
                       src={program.node.programfields.icon.node.sourceUrl}
@@ -35,6 +35,7 @@ function Program({programs}:any) {
                       height={
                         program.node.programfields.icon.node.mediaDetails.height
                       }
+                      className='w-full inline-block'
                     />
                   )}
                 </figure>
