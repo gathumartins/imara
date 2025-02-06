@@ -234,8 +234,8 @@ function ContactForm() {
                   disabled={submitting}
                   className="bg-iBlue hover:bg-iSecondary px-3 text-white w-[180px] mx-auto h-[45px] flex place-items-center justify-center text-center rounded text-lg font-avenirRoman ml-0 mt-3"
                 />
+                {showSuccessMessage && <p className="text-growth">{resMess}</p>}
               </form>
-              {showSuccessMessage && <p className="text-growth">{resMess}</p>}
             </div>
           </div>
         </section>
