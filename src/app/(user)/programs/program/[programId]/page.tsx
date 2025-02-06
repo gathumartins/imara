@@ -48,6 +48,7 @@ async function page({params}:any) {
   });
   const data = await res.json();
   const mini = data.data.program.pageBanners;
+
   // console.log(data.data.program.featuredImage.node);
   return (
     <>
