@@ -28,7 +28,7 @@ function ContactForm() {
         };
         try {
           const req = await fetch(
-            `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/contact-form-7/v1/contact-forms/394/feedback`,
+            `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/contact-form-7/v1/contact-forms/395/feedback`,
             reqOptions
           );
           const response = await req.json();
@@ -147,8 +147,8 @@ function ContactForm() {
                   </label>
                   <input
                     type="text"
-                    name="fullName"
-                    id="fullName"
+                    name="your-name"
+                    id="your-name"
                     value={fullName}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Enter Full Name"
@@ -164,8 +164,8 @@ function ContactForm() {
                     Email Address
                   </label>
                   <input
-                    type="email"
-                    name="email"
+                    type="your-email"
+                    name="your-email"
                     id="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -201,8 +201,8 @@ function ContactForm() {
                   </label>
                   <input
                     type="text"
-                    name="subject"
-                    id="subject"
+                    name="your-subject"
+                    id="your-subject"
                     value={subject}
                     onChange={(e) => setSubject(e.target.value)}
                     placeholder="Enter Subject"
@@ -218,8 +218,8 @@ function ContactForm() {
                     Message
                   </label>
                   <textarea
-                    name="message"
-                    id="message"
+                    name="your-message"
+                    id="your-message"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     rows={2}

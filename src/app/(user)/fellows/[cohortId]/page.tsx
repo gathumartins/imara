@@ -11,7 +11,7 @@ async function page({params}:any) {
     id
     slug
     name
-    fellows {
+    fellows(first:1000) {
       edges {
         node {
           title
@@ -42,7 +42,7 @@ async function page({params}:any) {
 }
 `;
   const variables = {
-    slug,
+    slug
   };
   const res = await fetch(`${process.env.WORDPRESS_API_URL}`, {
     method: "POST",
@@ -55,8 +55,7 @@ async function page({params}:any) {
   const itemsPerPage = 12;
   const fellows = data.data.cohort.fellows.edges;
   const comp = "fellow";
-
-  console.log(data.data.cohort.name);
+  console.log(fellows.length)
   return (
     <>
       <MiniBanner data={mini} />
