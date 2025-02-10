@@ -21,7 +21,7 @@ async function page() {
       }
     }
   }
-  posts:posts {
+  posts:posts(first:1000) {
     edges {
       node {
         id

@@ -21,7 +21,7 @@ async function page() {
       }
     }
   }
-  reports:reports {
+  reports:reports(first:1000) {
     edges {
       node {
         title

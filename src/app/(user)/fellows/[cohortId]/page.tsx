@@ -55,7 +55,6 @@ async function page({params}:any) {
   const itemsPerPage = 12;
   const fellows = data.data.cohort.fellows.edges;
   const comp = "fellow";
-  console.log(fellows.length)
   return (
     <>
       <MiniBanner data={mini} />

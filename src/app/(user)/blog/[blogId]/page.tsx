@@ -33,7 +33,7 @@ query NewQuery($slug:ID!){
       }
     }
   }
-  posts:posts {
+  posts:posts(first:6) {
     edges {
       node {
         id
