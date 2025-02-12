@@ -7,15 +7,26 @@ function Register({lay}:any) {
   return (
     <section className="bg-white">
       <div className="container py-12 flex flex-col-reverse md:flex-row justify-between gap-10 place-items-center">
-        {lay.register.registerImage !== null && (
-          <Image
-            src={lay.register.registerImage.node.sourceUrl}
-            alt={`Imara Fellowship Africa Resgister Section Image`}
-            width={lay.register.registerImage.node.mediaDetails.width}
-            height={lay.register.registerImage.node.mediaDetails.height}
-            className="inline-block rounded flex-grow md:w-1/2"
-          />
+        {lay.register.video !== null ? (
+          <div className="flex-grow w-full md:w-1/2">
+            <iframe
+              allow="fullscreen"
+              className="w-full aspect-video rounded-lg"
+              src={lay.register.video}
+            ></iframe>
+          </div>
+        ) : (
+          lay.register.registerImage !== null && (
+            <Image
+              src={lay.register.registerImage.node.sourceUrl}
+              alt={`Imara Fellowship Africa Resgister Section Image`}
+              width={lay.register.registerImage.node.mediaDetails.width}
+              height={lay.register.registerImage.node.mediaDetails.height}
+              className="inline-block rounded flex-grow md:w-1/2"
+            />
+          )
         )}
+
         <div className="flex flex-col justify-start md:w-1/2 gap-4">
           <h3 className="font-avenirBlack text-3xl text-iBlue lg:w-3/4">
             {lay.register.registerTitle}

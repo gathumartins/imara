@@ -136,7 +136,7 @@ function Footer({ progs, quicks, orgs, lay }: any) {
                       </div>
                     )}
                     {state === "Success" && (
-                      
+
                       <div className="text-green-500 text-xs text-center">
                         Success. Thank You Subscribing our Newsletter
                       </div>
