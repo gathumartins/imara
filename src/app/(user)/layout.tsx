@@ -31,7 +31,7 @@ export default async function MainLayout({
         }
       }
     }
-  } 
+  }
   orgMenu:  menu(id: "dGVybToz", idType: ID) {
     name
     menuItems(where: {parentId: "cG9zdDo0Mg=="}) {
@@ -43,7 +43,7 @@ export default async function MainLayout({
         }
       }
     }
-  } 
+  }
   quickMenu:  menu(id: "dGVybToz", idType: ID) {
     name
     menuItems(where: {parentId: "cG9zdDo0Mw=="}) {
@@ -55,7 +55,7 @@ export default async function MainLayout({
         }
       }
     }
-  }   
+  }
 
   layout: layout(id: "cG9zdDo5OQ==") {
     headerFooter {
@@ -72,6 +72,7 @@ export default async function MainLayout({
           target
           url
         }
+        video
         registerImage {
           node {
             sourceUrl
@@ -84,7 +85,7 @@ export default async function MainLayout({
       }
     }
   }
-  
+
   }`;
   const res = await fetch(
     `${process.env.WORDPRESS_API_URL}?query=${encodeURIComponent(query)}`,
