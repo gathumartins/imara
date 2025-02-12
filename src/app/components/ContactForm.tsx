@@ -5,51 +5,70 @@ import { FaLocationDot } from "react-icons/fa6";
 import Link from "next/link";
 
 function ContactForm() {
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [phone, setPhone] = useState("");
-    const [subject, setSubject] = useState("");
-    const [message, setMessage] = useState("");
-    const [submitting, setSubmitting] = useState(false);
-    const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-    const [success, setSuccess] = useState(false);
-    const [resMess, setResMess] = useState("");
+      const [name, setName] = useState("");
+      const [email, setEmail] = useState("");
+      const [phone, setPhone] = useState("");
+      const [subject, setSubject] = useState("");
+      const [message, setMessage] = useState("");
+      const [submitting, setSubmitting] = useState(false);
+      const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+      const [success, setSuccess] = useState(false);
+      const [resMess, setResMess] = useState("");
+      const formId = "395";
+      const unitTag = "wpcf7-f395-p1-o1";
 
       const handleSubmit = async (event: any) => {
         event.preventDefault();
         setSubmitting(true);
-        const formData = new FormData(event.target);
+
+          const formData = new FormData(event.target);
+          formData.append("_wpcf7", formId);
+          formData.append("_wpcf7_unit_tag", unitTag);
+
         const reqOptions = {
           method: "POST",
           body: formData,
         };
-        try {
-          const req = await fetch(
-            `${process.env.WORDPRESS_URL}/wp-json/contact-form-7/v1/contact-forms/395/feedback`,
-            reqOptions
-          );
-          const response = await req.json();
-          setResMess(response.message);
-          if (response.status === "mail_sent") {
-            setSuccess(true);
-            setShowSuccessMessage(true);
-            setTimeout(() => {
-              setShowSuccessMessage(false);
-              setName("");
-              setEmail("");
-              setPhone("");
-              setMessage("");
-              setSubject("");
-            }, 5000);
-          } else {
+          try {
+            const req = await fetch(
+              `https://www.admin.imarafellowship.org/wp-json/contact-form-7/v1/contact-forms/395/feedback`,
+              reqOptions
+            );
+
+            if (!req.ok) {
+              throw new Error(`HTTP error! status: ${req.status}`);
+            }
+
+            const response = await req.json();
+            setResMess(response.message);
+
+            if (response.status === "mail_sent") {
+              setSuccess(true);
+              setShowSuccessMessage(true);
+              // Reset form
+              setTimeout(() => {
+                setShowSuccessMessage(false);
+                setName("");
+                setEmail("");
+                setPhone("");
+                setMessage("");
+                setSubject("");
+              }, 5000);
+            } else {
+              setSuccess(false);
+              setResMess(
+                response.message || "Failed to send message. Please try again."
+              );
+            }
+          } catch (error) {
+            console.error("Error submitting form:", error);
             setSuccess(false);
+            setResMess(
+              "An error occurred while sending your message. Please try again."
+            );
+          } finally {
+            setSubmitting(false);
           }
-        } catch (error) {
-          console.error("Error submitting form:", error);
-          setSuccess(false);
-        } finally {
-          setSubmitting(false);
-        }
       };
   return (
     <article
@@ -227,11 +246,19 @@ function ContactForm() {
                 </div>
                 <input
                   type="submit"
-                  value={submitting ? `Sending Message` : `Send Message`}
+                  value={submitting ? "Sending Message" : "Send Message"}
                   disabled={submitting}
                   className="bg-iBlue hover:bg-iSecondary px-3 text-white w-[180px] mx-auto h-[45px] flex place-items-center justify-center text-center rounded text-lg font-avenirRoman ml-0 mt-3"
                 />
-                {showSuccessMessage && <p className="text-growth">{resMess}</p>}
+                {showSuccessMessage && (
+                  <div
+                    className={`lg:col-span-2 text-center ${
+                      success ? "text-green-600" : "text-red-600"
+                    }`}
+                  >
+                    {resMess}
+                  </div>
+                )}
               </form>
             </div>
           </div>
