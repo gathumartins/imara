@@ -5,19 +5,16 @@ import { FaLocationDot } from "react-icons/fa6";
 import Link from "next/link";
 
 function ContactForm() {
-    const [fullName, setName] = useState("");
+    const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
+    const [subject, setSubject] = useState("");
     const [message, setMessage] = useState("");
     const [submitting, setSubmitting] = useState(false);
-    const [subject, setSubject] = useState("");
     const [showSuccessMessage, setShowSuccessMessage] = useState(false);
     const [success, setSuccess] = useState(false);
     const [resMess, setResMess] = useState("");
 
-    const handleSubjectChange = (event: any) => {
-      setSubject(event.target.value);
-    };
       const handleSubmit = async (event: any) => {
         event.preventDefault();
         setSubmitting(true);
@@ -28,7 +25,7 @@ function ContactForm() {
         };
         try {
           const req = await fetch(
-            `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/contact-form-7/v1/contact-forms/395/feedback`,
+            `${process.env.WORDPRESS_URL}/wp-json/contact-form-7/v1/contact-forms/395/feedback`,
             reqOptions
           );
           const response = await req.json();
@@ -140,7 +137,7 @@ function ContactForm() {
               >
                 <div className="flex flex-col gap-1">
                   <label
-                    htmlFor="fullName"
+                    htmlFor="your-name"
                     className="font-avenirRoman text-base text-iNeutral"
                   >
                     Full Name
@@ -149,7 +146,7 @@ function ContactForm() {
                     type="text"
                     name="your-name"
                     id="your-name"
-                    value={fullName}
+                    value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Enter Full Name"
                     className="p-2 rounded border border-white shadow focus:outline-none focus:border-iBlue focus:ring-iBlue focus:right-1 placeholder:text-iNeutral placeholder:text-sm"
@@ -158,7 +155,7 @@ function ContactForm() {
                 </div>
                 <div className="flex flex-col gap-1">
                   <label
-                    htmlFor="email"
+                    htmlFor="your-email"
                     className="font-avenirRoman text-base text-iNeutral"
                   >
                     Email Address
@@ -176,15 +173,15 @@ function ContactForm() {
                 </div>
                 <div className="flex flex-col gap-1">
                   <label
-                    htmlFor="phone"
+                    htmlFor="your-phone"
                     className="font-avenirRoman text-base text-iNeutral"
                   >
                     Phone Number
                   </label>
                   <input
                     type="tel"
-                    name="phone"
-                    id="phone"
+                    name="your-phone"
+                    id="your-phone"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="Enter Phone Number"
@@ -194,7 +191,7 @@ function ContactForm() {
                 </div>
                 <div className="flex flex-col gap-1">
                   <label
-                    htmlFor="subject"
+                    htmlFor="your-subject"
                     className="font-avenirRoman text-base text-iNeutral"
                   >
                     Subject
@@ -212,7 +209,7 @@ function ContactForm() {
                 </div>
                 <div className="flex flex-col gap-1 lg:col-span-2">
                   <label
-                    htmlFor="message"
+                    htmlFor="your-message"
                     className="font-avenirRoman text-base text-iNeutral"
                   >
                     Message
