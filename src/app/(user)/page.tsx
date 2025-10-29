@@ -5,12 +5,13 @@ import Program from '@/app/components/Program'
 import Stats from '@/app/components/Stats'
 import Testimonials from '@/app/components/Testimonials'
 import React from 'react'
+import HomeApply from '../components/HomeApply'
 
 async function page() {
 const query = `
 {
 page:page(id: "cG9zdDoxMA==") {
-    id
+  id
     title
     uri
     slug
@@ -53,9 +54,27 @@ page:page(id: "cG9zdDoxMA==") {
           description
         }
       }
+      homeapply {
+        excerpt
+        homeapplymage {
+          node {
+            altText
+            sourceUrl
+            mediaDetails {
+              height
+              width
+            }
+          }
+        }
+        title
+        readmore {
+          linklabel
+          link
+        }
+      }
     }
   }
-  partners:partners {
+  partners: partners {
     edges {
       node {
         title
@@ -72,7 +91,7 @@ page:page(id: "cG9zdDoxMA==") {
       }
     }
   }
-  tests:testimonials {
+  tests: testimonials {
     edges {
       node {
         title
@@ -83,7 +102,7 @@ page:page(id: "cG9zdDoxMA==") {
       }
     }
   }
-  programs:programs {
+  programs: programs {
     edges {
       node {
         title
@@ -106,7 +125,7 @@ page:page(id: "cG9zdDoxMA==") {
       }
     }
   }
-  headings:heading(id: "cG9zdDozODM=", idType: ID) {
+  headings: heading(id: "cG9zdDozODM=", idType: ID) {
     siteheadings {
       headings {
         program {
@@ -131,10 +150,12 @@ page:page(id: "cG9zdDoxMA==") {
   const heroData = data.data.page.homehero.hero
   const homeStats = data.data.page.homehero.homestats
   const homeAbout = data.data.page.homehero.homeabout
+  const homeApply = data.data.page.homehero.homeapply;
   const homePrograms = data.data.programs.edges;
   return (
     <>
       <HomeHero hero={heroData} />
+      <HomeApply apply={homeApply} />
       <Stats stats={homeStats} />
       <HomeAbout about={homeAbout} />
       <Program

@@ -180,7 +180,7 @@ function ContactForm() {
                     Email Address
                   </label>
                   <input
-                    type="your-email"
+                    type="email"
                     name="your-email"
                     id="email"
                     value={email}
