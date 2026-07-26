@@ -10,14 +10,11 @@ import {
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
-  CardHeader,
-  CardTitle,
 } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-function Slider({tests}:any) {
+async function Slider({tests}:any) {
   return (
     <div className="max-w-[1280px] mx-auto mt-[20px]">
       <Carousel opts={{ align: "start", loop: true }}>
