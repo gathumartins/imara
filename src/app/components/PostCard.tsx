@@ -47,7 +47,7 @@ function PostCard({post}:any) {
       </CardContent>
       <CardFooter>
         <Link
-          href={`/blog/${post.node.slug}`}
+          href={`/iPolicy/${post.node.slug}`}
           className="text-iSecondary text-lg hover:text-iBlue font-avenirBook flex gap-1 items-center"
         >
           <span>Read More</span>
