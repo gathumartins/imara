@@ -1,6 +1,6 @@
 import React from 'react'
-import Link from 'next/link';
-import Image from 'next/image';
+import Link from "next/link";
+import Image from "next/image";
 
 function Program({programs, titles}:any) {
   return (
@@ -16,14 +16,14 @@ function Program({programs, titles}:any) {
           <div className="max-w-[400px] mx-auto text-center text-white font-avenirRoman text-base mb-[20px]" dangerouslySetInnerHTML={{__html: titles.subtitle}}>
 
           </div>
-          <nav className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {programs.reverse().map((program: any, i: number) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            {[...programs].reverse().map((program: any, i: number) => (
               <Link
                 href={`/programs/program/${program.node.slug}`}
                 className="min-h-[180px] bg-white rounded p-4 md:p-8 flex flex-row justify-start gap-4 shadow-md hover:shadow-iNeutral"
                 key={i}
               >
-                <figure className="w-[150px] h-[150px] inline-block">
+                <section className="w-[150px] h-[150px] inline-block">
                   {program.node.programfields.icon !== null && (
                     <Image
                       src={program.node.programfields.icon.node.sourceUrl}
@@ -37,7 +37,7 @@ function Program({programs, titles}:any) {
                       className='w-full inline-block'
                     />
                   )}
-                </figure>
+                </section>
                 <div>
                   <h4 className="text-xl font-avenirBlack text-iNeutral mb-[15px]">
                     {program.node.title}
@@ -49,7 +49,7 @@ function Program({programs, titles}:any) {
                 </div>
               </Link>
             ))}
-          </nav>
+          </div>
         </section>
       </article>
     </div>

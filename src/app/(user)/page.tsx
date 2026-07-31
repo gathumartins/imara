@@ -1,14 +1,14 @@
-import HomeAbout from '@/app/components/HomeAbout'
-import HomeHero from '@/app/components/HomeHero'
-import Partners from '@/app/components/Partners'
-import Program from '@/app/components/Program'
-import Stats from '@/app/components/Stats'
-import Testimonials from '@/app/components/Testimonials'
-import React from 'react'
-import HomeApply from '../components/HomeApply'
+import React from "react";
+import HomeAbout from "@/app/components/HomeAbout";
+import HomeHero from "@/app/components/HomeHero";
+import Partners from "@/app/components/Partners";
+import Program from "@/app/components/Program";
+import Stats from "@/app/components/Stats";
+import Testimonials from "@/app/components/Testimonials";
+import HomeApply from "../components/HomeApply";
 
 async function page() {
-const query = `
+  const query = `
 {
 page:page(id: "cG9zdDoxMA==") {
   id
@@ -143,13 +143,13 @@ page:page(id: "cG9zdDoxMA==") {
 `;
   const result = await fetch(
     `${process.env.WORDPRESS_API_URL}?query=${encodeURIComponent(query)}`,
-    { headers: { "Content-Type": "application/json" } }
+    { headers: { "Content-Type": "application/json" } },
   );
   const data = await result.json();
 
-  const heroData = data.data.page.homehero.hero
-  const homeStats = data.data.page.homehero.homestats
-  const homeAbout = data.data.page.homehero.homeabout
+  const heroData = data.data.page.homehero.hero;
+  const homeStats = data.data.page.homehero.homestats;
+  const homeAbout = data.data.page.homehero.homeabout;
   const homeApply = data.data.page.homehero.homeapply;
   const homePrograms = data.data.programs.edges;
   return (
@@ -171,4 +171,4 @@ page:page(id: "cG9zdDoxMA==") {
   );
 }
 
-export default page
+export default page;
